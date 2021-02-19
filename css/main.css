@@ -1,0 +1,69 @@
+/* stylesheet for DemoSite03_StudyWeb */
+
+/* global settings */
+/* ============================================ */
+
+/* charset */
+@charset "UTF-8";
+
+/* import font-family */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
+
+/* variable */
+:root {
+    --line-height-basic: 1.5;
+    --font-color-basic: rgb(0, 0, 0);
+    --outline-color-focus: rgb(0, 0, 0);
+    --background-color-basic: rgb(255, 255, 255);
+    --background-color-secondary: rgb(209, 187, 153);
+    --opacity-hover: .8;
+}
+
+/* basic settings */
+body {
+    font-size: inherit;
+    font-family: 'Noto Serif JP', serif;
+    line-height: var(--basic-line-height);
+    color: var(--basic-font-color);
+    background: var(--background-color-basic);
+}
+
+/* link */
+a {
+    color: var(--font-color-basic);
+}
+a:hover {
+    opacity: var(--opacity-hover);
+}
+a:focus-visible {
+    outline: auto var(--outline-color-focus);
+}
+
+/* button */
+button:focus-visible {
+    outline: auto var(--outline-color-focus);
+}
+
+/* img */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* max width of contents */
+.contentsMaxWidth {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* side padding for narrow screen */
+.contentsSidePadding {
+    padding: 0 1rem;
+}
+@media screen and (min-width: 980px) {
+
+    .contentsSidePadding {
+        padding: 0 max(0px, calc(1rem - (100vw - 980px) / 2));
+    }
+}
