@@ -14,9 +14,13 @@
     --line-height-basic: 1.5;
     --font-color-basic: rgb(0, 0, 0);
     --outline-color-focus: rgb(0, 0, 0);
+    --border-color-basic: rgb(0, 0, 0);
     --background-color-basic: rgb(255, 255, 255);
     --background-color-secondary: rgb(209, 187, 153);
+    --background-color-pageHeader: rgb(255, 255, 255);
     --opacity-hover: .8;
+    --height-pageHeader: 4rem;
+    --length-sidePadding: 1rem;
 }
 
 /* basic settings */
@@ -66,4 +70,71 @@ img {
     .contentsSidePadding {
         padding: 0 max(0px, calc(1rem - (100vw - 980px) / 2));
     }
+}
+
+
+/* page header */
+/* ============================================ */
+
+/* basic design */
+/* -------------------------------------------- */
+
+/* pageHeader itself */
+#pageHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--height-pageHeader);
+    background: var(--background-color-pageHeader);
+}
+#pageHeader .pageHeaderFlexbox {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* company logo */
+#pageHeader .companyLogo {
+    align-self: center;
+}
+#pageHeader .companyLogo img {
+    width: auto;
+    height: calc(var(--height-pageHeader) * .8);
+}
+
+/* side menu button */
+#pageHeader #sideMenuButton {
+    position: absolute;
+    top: calc((var(--height-pageHeader) - 2em) / 2); /* calc((ページヘッダの高さ - ボタンの高さ) / 2) */
+    left: var(--length-sidePadding);
+    width: 3em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 1px var(--border-color-basic);
+    border-bottom: solid 1px var(--border-color-basic);
+}
+#pageHeader #sideMenuButton .sideMenuButtonLetter {
+    font-size: .7em;
+}
+#pageHeader #sideMenuButton:not(.on-sideMenu) .sideMenuButtonLetter::before {
+    content: "MENU";
+}
+#pageHeader #sideMenuButton.on-sideMenu .sideMenuButtonLetter::before {
+    content: "CLOSE";
+}
+
+/* global nav */
+#pageHeader .globalNav {
+    display: none;
+}
+
+
+/* side menu */
+/* ============================================ */
+
+#sideMenu {
+    display: none;
 }
