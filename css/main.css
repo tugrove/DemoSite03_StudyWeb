@@ -21,12 +21,14 @@
     --background-color-primary: rgb(255, 255, 255);
     --background-color-secondary: rgb(209, 187, 153);
     --background-color-pageHeader: rgb(255, 255, 255);
+    --background-color-sideMenu: rgb(194, 167, 167);
     /* line-height */
     --line-height-basic: 1.5;
     /* size, length, width, or height */
     --width-contentsMaxWidth: 980px;
     --length-sidePadding: 1rem;
     --height-pageHeader: 4rem;
+    --width-sideMenu: 100vw;
     /* others */
     --opacity-hover: .8;
 }
@@ -127,10 +129,10 @@ img {
 #pageHeader #sideMenuButton .sideMenuButtonLetter {
     font-size: .7em;
 }
-#pageHeader #sideMenuButton:not(.on-sideMenu) .sideMenuButtonLetter::before {
+#pageHeader #sideMenuButton:not(.open) .sideMenuButtonLetter::before {
     content: "MENU";
 }
-#pageHeader #sideMenuButton.on-sideMenu .sideMenuButtonLetter::before {
+#pageHeader #sideMenuButton.open .sideMenuButtonLetter::before {
     content: "CLOSE";
 }
 
@@ -144,5 +146,20 @@ img {
 /* ============================================ */
 
 #sideMenu {
+    position: fixed;
+    top: var(--height-pageHeader);
+    left: calc(var(--width-sideMenu) * -1);
+    bottom: 0;
+    width: var(--width-sideMenu);
+    background: var(--background-color-sideMenu);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: .5s;
+}
+#sideMenu.open {
+    left: 0;
+}
+
+#sideMenu .globalNav .parent-ul .parent-li:not(.open) .child-ul {
     display: none;
 }
