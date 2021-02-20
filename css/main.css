@@ -9,18 +9,26 @@
 /* import font-family */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
 
-/* variable */
+/* variable definition */
 :root {
-    --line-height-basic: 1.5;
+    /* font-color */
     --font-color-basic: rgb(0, 0, 0);
+    /* outline-color */
     --outline-color-focus: rgb(0, 0, 0);
+    /* border-color */
     --border-color-basic: rgb(0, 0, 0);
-    --background-color-basic: rgb(255, 255, 255);
+    /* background-color */
+    --background-color-primary: rgb(255, 255, 255);
     --background-color-secondary: rgb(209, 187, 153);
     --background-color-pageHeader: rgb(255, 255, 255);
-    --opacity-hover: .8;
-    --height-pageHeader: 4rem;
+    /* line-height */
+    --line-height-basic: 1.5;
+    /* size, length, width, or height */
+    --width-contentsMaxWidth: 980px;
     --length-sidePadding: 1rem;
+    --height-pageHeader: 4rem;
+    /* others */
+    --opacity-hover: .8;
 }
 
 /* basic settings */
@@ -29,7 +37,7 @@ body {
     font-family: 'Noto Serif JP', serif;
     line-height: var(--basic-line-height);
     color: var(--basic-font-color);
-    background: var(--background-color-basic);
+    background: var(--background-color-primary);
 }
 
 /* link */
@@ -57,18 +65,18 @@ img {
 
 /* max width of contents */
 .contentsMaxWidth {
-    max-width: 980px;
+    max-width: var(--width-contentsMaxWidth);
     margin: 0 auto;
 }
 
 /* side padding for narrow screen */
 .contentsSidePadding {
-    padding: 0 1rem;
+    padding: 0 var(--length-sidePadding);
 }
 @media screen and (min-width: 980px) {
 
     .contentsSidePadding {
-        padding: 0 max(0px, calc(1rem - (100vw - 980px) / 2));
+        padding: 0 max(0px, calc(var(--length-sidePadding) - (100vw - 980px) / 2));
     }
 }
 
