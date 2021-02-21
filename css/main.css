@@ -21,7 +21,7 @@
     --background-color-primary: rgb(255, 255, 255);
     --background-color-secondary: rgb(209, 187, 153);
     --background-color-pageHeader: rgb(255, 255, 255);
-    --background-color-sideMenu: rgb(194, 167, 167);
+    --background-color-sideMenu: rgb(255, 245, 245);
     /* line-height */
     --line-height-basic: 1.5;
     /* size, length, width, or height */
@@ -82,6 +82,19 @@ img {
     }
 }
 
+/* global nav common settings*/
+.globalNav .parent-ul .parent-li span::before {
+    font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+    padding: 0 .3em 0 0;
+}
+.globalNav .parent-ul .parent-li:not(.open) span::before {
+    content: "\f0da";
+}
+.globalNav .parent-ul .parent-li.open span::before {
+    content: "\f0d7"
+}
+
 
 /* page header */
 /* ============================================ */
@@ -127,7 +140,7 @@ img {
     border-bottom: solid 1px var(--border-color-basic);
 }
 #pageHeader #sideMenuButton .sideMenuButtonLetter {
-    font-size: .7em;
+    font-size: .7rem;
 }
 #pageHeader #sideMenuButton:not(.open) .sideMenuButtonLetter::before {
     content: "MENU";
@@ -145,6 +158,10 @@ img {
 /* side menu */
 /* ============================================ */
 
+/* basic design */
+/* -------------------------------------------- */
+
+/* side menu itself */
 #sideMenu {
     position: fixed;
     top: var(--height-pageHeader);
@@ -158,6 +175,23 @@ img {
 }
 #sideMenu.open {
     left: 0;
+}
+
+/* global menu */
+#sideMenu .globalNav .parent-ul {
+    margin: 3em 0 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em;
+    font-size: 1.2rem;
+}
+#sideMenu .globalNav .parent-ul .parent-li .child-ul {
+    margin: 1em 0 0 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    font-size: 1rem;
 }
 
 #sideMenu .globalNav .parent-ul .parent-li:not(.open) .child-ul {
