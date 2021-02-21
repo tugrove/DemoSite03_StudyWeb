@@ -1,7 +1,7 @@
 /* stylesheet for DemoSite03_StudyWeb */
 
 /* global settings */
-/* ============================================ */
+/* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
 /* charset */
 @charset "UTF-8";
@@ -13,10 +13,13 @@
 :root {
     /* font-color */
     --font-color-basic: rgb(0, 0, 0);
+    --font-color-title: rgb(255, 255, 255);
     /* outline-color */
     --outline-color-focus: rgb(0, 0, 0);
     /* border-color */
     --border-color-basic: rgb(0, 0, 0);
+    /* shadow-color */
+    --shadow-color-dark: rgba(0, 0, 0, .7);
     /* background-color */
     --background-color-primary: rgb(255, 255, 255);
     --background-color-secondary: rgb(209, 187, 153);
@@ -97,10 +100,10 @@ img {
 
 
 /* page header */
-/* ============================================ */
+/* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
 /* basic design */
-/* -------------------------------------------- */
+/* ============================================ */
 
 /* pageHeader itself */
 #pageHeader {
@@ -156,10 +159,10 @@ img {
 
 
 /* side menu */
-/* ============================================ */
+/* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
 /* basic design */
-/* -------------------------------------------- */
+/* ============================================ */
 
 /* side menu itself */
 #sideMenu {
@@ -193,7 +196,33 @@ img {
     gap: .5em;
     font-size: 1rem;
 }
-
 #sideMenu .globalNav .parent-ul .parent-li:not(.open) .child-ul {
     display: none;
+}
+
+
+/* page main */
+/* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+
+/* basic design */
+/* ============================================ */
+
+/* page main itself */
+#pageMain {
+    margin: var(--height-pageHeader) 0 0;
+}
+
+/* articl header */
+#pageMain .articleHeader {
+    width: 100vw;
+    height: 10em;
+    background: url(https://picsum.photos/300/200) center center / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#pageMain .articleHeader .pageTitle {
+    font-size: 1.5rem;
+    color: var(--font-color-title);
+    text-shadow: 1px 1px var(--shadow-color-dark);
 }
