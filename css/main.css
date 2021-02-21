@@ -13,6 +13,8 @@
 :root {
     /* font-color */
     --font-color-basic: rgb(0, 0, 0);
+    --font-color-link-primary: rgb(0, 0, 0);
+    --font-color-link-secondary: rgb(100, 100, 100);
     --font-color-title: rgb(255, 255, 255);
     /* outline-color */
     --outline-color-focus: rgb(0, 0, 0);
@@ -26,9 +28,9 @@
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
     /* line-height */
-    --line-height-basic: 1.5;
+    --line-height-basic: 1.8;
     /* size, length, width, or height */
-    --width-contentsMaxWidth: 980px;
+    --width-contentsMaxWidth: 1080px;
     --length-sidePadding: 1rem;
     --height-pageHeader: 4rem;
     --width-sideMenu: 100vw;
@@ -40,14 +42,14 @@
 body {
     font-size: inherit;
     font-family: 'Noto Serif JP', serif;
-    line-height: var(--basic-line-height);
-    color: var(--basic-font-color);
+    line-height: var(--line-height-basic);
+    color: var(--font-color-basic);
     background: var(--background-color-primary);
 }
 
 /* link */
 a {
-    color: var(--font-color-basic);
+    color: var(--font-color-link-primary);
 }
 a:hover {
     opacity: var(--opacity-hover);
@@ -76,12 +78,12 @@ img {
 
 /* side padding for narrow screen */
 .contentsSidePadding {
-    padding: 0 var(--length-sidePadding);
+    margin: 0 var(--length-sidePadding);
 }
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 1080px) {
 
     .contentsSidePadding {
-        padding: 0 max(0px, calc(var(--length-sidePadding) - (100vw - 980px) / 2));
+        padding: 0 max(0px, calc(var(--length-sidePadding) - (100vw - 1080px) / 2));
     }
 }
 
@@ -225,4 +227,21 @@ img {
     font-size: 1.5rem;
     color: var(--font-color-title);
     text-shadow: 1px 1px var(--shadow-color-dark);
+}
+
+/* breadcrumbs */
+#pageMain .breadcrumbs {
+    margin: .5em calc(var(--length-sidePadding) / 2);
+}
+#pageMain .breadcrumbs ul {
+    display: flex;
+    gap: .5em;
+    font-size: .9rem;
+}
+#pageMain .breadcrumbs a {
+    color: var(--font-color-link-secondary);
+}
+#pageMain .breadcrumbs ul li:not(:last-child)::after {
+    content: ">";
+    margin: 0 0 0 .5em;
 }
