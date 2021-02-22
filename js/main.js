@@ -1,7 +1,6 @@
 $( () => {
-    $(`#sideMenuButton`).on(`click`, event => {
-        const button = event.currentTarget;
-        operateSideMenu.toggle(button);
+    $(`#sideMenuButton`).on(`click`, () => {
+        operateSideMenu.toggle();
     });
     $(`#sideMenu a`).on(`click`, () => {
         operateSideMenu.close();
@@ -25,9 +24,9 @@ const operateSideMenu = {
         $(`#sideMenu`).removeClass(`open`);
     },
 
-    toggle: function(elem) {
-        const isOpen = elem.classList.value;
-        if (isOpen === `open`) {
+    toggle: function() {
+        const getClass = $(`#sideMenuButton`).attr(`class`);
+        if (getClass === `open`) {
             this.close();
         } else {
             this.open();
