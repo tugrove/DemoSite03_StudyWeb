@@ -1,38 +1,43 @@
 $( () => {
     $(`#sideMenuButton`).on(`click`, event => {
-        const tmp = event.currentTarget.classList.value;
-        if (tmp === `open`) {
-            operateSideMenu.close();
-        } else {
-            operateSideMenu.open();
-        }
+        const button = event.currentTarget;
+        operateSideMenu.toggle(button);
     });
     $(`#sideMenu a`).on(`click`, () => {
         operateSideMenu.close();
     });
     $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click`, event => {
-        const tmp = event.currentTarget.classList.value;
-        operateSideMenu.globalNav.toggleChildUl(tmp);
+        const parent = event.currentTarget.parentElement;
+        operateSideMenu.globalNav.toggleChildUl(parent);
     });
 });
 
 const operateSideMenu = {
 
-    open: function () {
+    open: function() {
         $(`#sideMenuButton`).addClass(`open`);
         $(`#sideMenu`).addClass(`open`);
         this.globalNav.closeChildUl();
     },
 
-    close: function () {
+    close: function() {
         $(`#sideMenuButton`).removeClass(`open`);
         $(`#sideMenu`).removeClass(`open`);
     },
 
+    toggle: function(elem) {
+        const isOpen = elem.classList.value;
+        if (isOpen === `open`) {
+            this.close();
+        } else {
+            this.open();
+        }
+    },
+
     globalNav: {
 
-        toggleChildUl: function(cls) {
-            $(`#sideMenu .globalNav .parent-ul .parent-li.${cls}`).toggleClass(`open`);
+        toggleChildUl: function(elem) {
+            elem.classList.toggle(`open`);
         },
 
         closeChildUl: function() {
