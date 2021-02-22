@@ -15,7 +15,7 @@
     --font-color-basic: rgb(0, 0, 0);
     --font-color-link-primary: rgb(0, 0, 0);
     --font-color-link-secondary: rgb(100, 100, 100);
-    --font-color-title: rgb(255, 255, 255);
+    --font-color-pageTitle: rgb(255, 255, 255);
     /* outline-color */
     --outline-color-focus: rgb(0, 0, 0);
     /* border-color */
@@ -24,7 +24,7 @@
     --shadow-color-dark: rgba(0, 0, 0, .7);
     /* background-color */
     --background-color-primary: rgb(255, 255, 255);
-    --background-color-secondary: rgb(209, 187, 153);
+    --background-color-secondary: rgb(255, 245, 245);
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
     /* line-height */
@@ -116,7 +116,7 @@ img {
     height: var(--height-pageHeader);
     background: var(--background-color-pageHeader);
 }
-#pageHeader .pageHeaderFlexbox {
+#pageHeader .flex-pageHeader {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -209,6 +209,9 @@ img {
 /* basic design */
 /* ============================================ */
 
+/* common */
+/* -------------------------------------------- */
+
 /* page main itself */
 #pageMain {
     margin: var(--height-pageHeader) 0 0;
@@ -218,14 +221,14 @@ img {
 #pageMain .articleHeader {
     width: 100vw;
     height: 10em;
-    background: url(https://picsum.photos/300/200) center center / cover no-repeat;
+    background: url(../images/product/background-img_1920_1315.jpg) center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #pageMain .articleHeader .pageTitle {
     font-size: 1.5rem;
-    color: var(--font-color-title);
+    color: var(--font-color-pageTitle);
     text-shadow: 1px 1px var(--shadow-color-dark);
 }
 
@@ -245,3 +248,7 @@ img {
     content: ">";
     margin: 0 0 0 .5em;
 }
+
+
+/* product page */
+/* -------------------------------------------- */
