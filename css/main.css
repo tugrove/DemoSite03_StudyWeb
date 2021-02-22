@@ -27,6 +27,7 @@
     --background-color-secondary: rgb(255, 245, 245);
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
+    --background-color-pageFooter: rgb(255, 255, 255);
     /* line-height */
     --line-height-basic: 1.8;
     /* size, length, width, or height */
@@ -200,6 +201,41 @@ img {
 }
 #sideMenu .globalNav .parent-ul .parent-li:not(.open) .child-ul {
     display: none;
+}
+
+
+/* page footer */
+/* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+
+/* basic design */
+/* ============================================ */
+
+/* page footer itself */
+#pageFooter {
+    padding: 2em 0 3em;
+    background: var(--background-color-pageFooter);
+}
+
+/* company logo */
+#pageFooter .companyLogo {
+    width: 12rem;
+    margin: 0 0 2em;
+}
+
+/* address */
+#pageFooter address {
+    margin: 2em 0;
+}
+
+/* footer nav */
+#pageFooter .footerNav {
+    display: none;
+}
+
+/* copyright */
+#pageFooter #copyright {
+    margin: 3em 0 0;
+    text-align: center;
 }
 
 
