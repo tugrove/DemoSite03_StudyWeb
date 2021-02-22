@@ -31,7 +31,7 @@
     --line-height-basic: 1.8;
     /* size, length, width, or height */
     --width-contentsMaxWidth: 1080px;
-    --length-sidePadding: 1rem;
+    --length-sidePadding: 2rem;
     --height-pageHeader: 4rem;
     --width-sideMenu: 100vw;
     /* others */
@@ -135,7 +135,7 @@ img {
 #pageHeader #sideMenuButton {
     position: absolute;
     top: calc((var(--height-pageHeader) - 2em) / 2); /* calc((ページヘッダの高さ - ボタンの高さ) / 2) */
-    left: var(--length-sidePadding);
+    left: calc(var(--length-sidePadding) / 2);
     width: 3em;
     height: 2em;
     display: flex;
@@ -217,7 +217,7 @@ img {
     margin: var(--height-pageHeader) 0 0;
 }
 
-/* articl header */
+/* article header */
 #pageMain .articleHeader {
     width: 100vw;
     height: 10em;
@@ -249,6 +249,49 @@ img {
     margin: 0 0 0 .5em;
 }
 
+/* article */
+#pageMain .flex-articleBody {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+/* articelSection */
+#pageMain .articleSection {
+    padding: 4em 0 6em;
+}
+#pageMain .articleSection:nth-child(2n) {
+    background: var(--background-color-secondary);
+}
+#pageMain .articleSection .articleSectionTitle {
+    margin: 0 0 1em;
+    font-size: 1.5rem;
+    text-align: center;
+}
 
 /* product page */
 /* -------------------------------------------- */
+
+/* flex-section */
+.page-product #pageMain .flex-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+}
+
+/* section each product */
+.page-product #pageMain .section-eachProduct {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.page-product #pageMain .section-eachProduct img {
+    order: 0;
+}
+.page-product #pageMain .section-eachProduct h3 {
+    order: 1;
+    font-size: 1.2rem;
+}
+.page-product #pageMain .section-eachProduct p {
+    order: 2
+}
