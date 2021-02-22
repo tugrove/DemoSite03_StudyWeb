@@ -19,177 +19,190 @@
     <link rel="icon" href="./images/common/favicon.png">
     <link rel="apple-touch-icon" href="./images/common/apple-touch-icon-180x180.png" sizes="180x180">
     <link rel="stylesheet" href="./css/destyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <div id="page">
+    <div id="page" class="page-product">
 
         <header id="pageHeader">
-            <button id="sideMenuButton" type="button">MENU</button>
-            <div class="companyLogo">
-                <a href="./index.html"><img src="./images/common/logo_transparent.png" alt="SUGAR BOMBER" width="1012" height="345"></a>
-            </div>
-            <nav class="globalNav">
-                <ul>
-                    <li><a href="./index.html">HOME</a></li>
-                    <li>
-                        <ul>
-                            <li>PRODUCT</li>
-                            <li><a href="#productCategory0">製品カテゴリ0</a></li>
-                            <li><a href="#productCategory1">製品カテゴリ1</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul>
-                            <li>ABOUT US</li>
-                            <li><a href="./aboutUs.html#aboutUsGreeting">代表挨拶</a></li>
-                            <li><a href="./aboutUs.html#aboutUsOverview">会社概要</a></li>
-                            <li><a href="./aboutUs.html#aboutUsStore">店舗</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul>
-                            <li>GALLERY</li>
-                            <li><a href="./gallery.html#galleryPicture">写真</a></li>
-                            <li><a href="./gallery.html#galleryMovie">動画</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./contact.html">CONTACT</a></li>
-                </ul>
-            </nav> <!-- /.globalNav-->
+            <button id="sideMenuButton" type="button"><span class="sideMenuButtonLetter"></span></button>
+            <div class="flex-pageHeader contentsSidePadding">
+                <div class="companyLogo">
+                    <a href="./index.html"><img src="./images/common/logo_transparent.png" alt="SUGAR BOMBER" width="1012" height="345"></a>
+                </div>
+                <nav class="globalNav">
+                    <ul class="parent-ul">
+                        <li class="parent-li"><a href="./index.html">HOME</a></li>
+                        <li class="parent-li parent-li-product">
+                            <span class="parent-li-product">PRODUCT</span>
+                            <ul class="child-ul">
+                                <li class="child-li"><a href="./product.html#">ケーキ</a></li>
+                                <li class="child-li"><a href="./product.html#productCategory1">ドーナツ</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent-li parent-li-aboutUs">
+                            <span class="parent-li-aboutUs">ABOUT US</span>
+                            <ul class="child-ul">
+                                <li class="child-li"><a href="./aboutUs.html#">代表挨拶</a></li>
+                                <li class="child-li"><a href="./aboutUs.html#aboutUsOverview">会社概要</a></li>
+                                <li class="child-li"><a href="./aboutUs.html#aboutUsStore">店舗</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent-li parent-li-gallery">
+                            <span class="parent-li-gallery">GALLERY</span>
+                            <ul class="child-ul">
+                                <li class="child-li"><a href="./gallery.html#">写真</a></li>
+                                <li class="child-li"><a href="./gallery.html#galleryMovie">動画</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent-li"><a href="./contact.html">CONTACT</a></li>
+                    </ul>
+                </nav> <!-- /.globalNav-->
+            </div> <!-- /.pageHeader /.contentsSidePadding -->
         </header> <!-- /#pageHeader -->
 
         <div id="sideMenu">
             <nav class="globalNav">
-                <ul>
-                    <li><a href="./index.html">HOME</a></li>
-                    <li>
-                        <ul>
-                            <li>PRODUCT</li>
-                            <li><a href="#productCategory0">製品カテゴリ0</a></li>
-                            <li><a href="#productCategory1">製品カテゴリ1</a></li>
+                <ul class="parent-ul">
+                    <li class="parent-li"><a href="./index.html">HOME</a></li>
+                    <li class="parent-li parent-li-product">
+                        <span class="parent-li-product">PRODUCT</span>
+                        <ul class="child-ul">
+                            <li class="child-li"><a href="./product.html#">ケーキ</a></li>
+                            <li class="child-li"><a href="./product.html#productCategory1">ドーナツ</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <ul>
-                            <li>ABOUT US</li>
-                            <li><a href="./aboutUs.html#aboutUsGreeting">代表挨拶</a></li>
-                            <li><a href="./aboutUs.html#aboutUsOverview">会社概要</a></li>
-                            <li><a href="./aboutUs.html#aboutUsStore">店舗</a></li>
+                    <li class="parent-li parent-li-aboutUs">
+                        <span class="parent-li-aboutUs">ABOUT US</span>
+                        <ul class="child-ul">
+                            <li class="child-li"><a href="./aboutUs.html#">代表挨拶</a></li>
+                            <li class="child-li"><a href="./aboutUs.html#aboutUsOverview">会社概要</a></li>
+                            <li class="child-li"><a href="./aboutUs.html#aboutUsStore">店舗</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <ul>
-                            <li>GALLERY</li>
-                            <li><a href="./gallery.html#galleryPicture">写真</a></li>
-                            <li><a href="./gallery.html#galleryMovie">動画</a></li>
+                    <li class="parent-li parent-li-gallery">
+                        <span class="parent-li-gallery">GALLERY</span>
+                        <ul class="child-ul">
+                            <li class="child-li"><a href="./gallery.html#">写真</a></li>
+                            <li class="child-li"><a href="./gallery.html#galleryMovie">動画</a></li>
                         </ul>
                     </li>
-                    <li><a href="./contact.html">CONTACT</a></li>
+                    <li class="parent-li"><a href="./contact.html">CONTACT</a></li>
                 </ul>
             </nav> <!-- /.globalNav-->
         </div> <!-- /#sideMenu -->
 
         <main id="pageMain">
-            <article class="mainArticle">
+            <article>
                 <header class="articleHeader">
                     <h1 class="pageTitle">PRODUCT</h1>
                 </header>
-                <div class="articleBody">
-                    <nav class="breadcrumbs">
+                <nav class="breadcrumbs">
+                    <div class="contentsMaxWidth">
                         <ul>
-                            <li><a href="./index.html">HOME</a> ></li>
+                            <li><a href="./index.html">HOME</a></li>
                             <li>PRODUCT</li>
                         </ul>
-                    </nav>
-                    <div class="articleBodyMain">
+                    </div>
+                </nav>
+                <div class="articleBody flex-articleBody">
 
-                        <section id="productCategory0">
-                            <h2>製品カテゴリ0</h2>
-                            <section>
-                                <h3>製品0</h3>
-                                <img src="https://picsum.photos/300/200" width="300" height="200" alt="product0">
-                                <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
-                                <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
-                            </section>
-                            <section>
-                                <h3>製品1</h3>
-                                <img src="https://picsum.photos/300/200" width="300" height="200" alt="product1">
-                                <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
-                                <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
-                            </section>
-                            <section>
-                                <h3>製品2</h3>
-                                <img src="https://picsum.photos/300/200" width="300" height="200" alt="product2">
-                                <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
-                                <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
-                            </section>
-                            <section>
-                                <h3>製品3</h3>
-                                <img src="https://picsum.photos/300/200" width="300" height="200" alt="product3">
-                                <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
-                                <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
-                            </section>
-                            <section>
-                                <h3>製品4</h3>
-                                <img src="https://picsum.photos/300/200" width="300" height="200" alt="product4">
-                                <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
-                                <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
-                            </section>
-                        </section> <!-- /#productCategory0 -->
+                    <section id="productCategory0" class="articleSection">
+                        <div class="contentsMaxWidth contentsSidePadding">
+                            <h2 class="articleSectionTitle">ケーキ</h2>
+                            <div class="flex-section">
+                                <section class="section-eachProduct">
+                                    <h3>ケーキ0</h3>
+                                    <img src="./images/product/cake-00_1280_847.jpg" width="1280" height="847" alt="product0">
+                                    <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
+                                    <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
+                                </section>
+                                <section class="section-eachProduct">
+                                    <h3>ケーキ1</h3>
+                                    <img src="./images/product/cake-01_1280_854.jpg" width="1280" height="854" alt="product1">
+                                    <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
+                                    <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
+                                </section>
+                                <section class="section-eachProduct">
+                                    <h3>ケーキ2</h3>
+                                    <img src="./images/product/cake-02_1280_870.jpg" width="1280" height="870" alt="product2">
+                                    <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
+                                    <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
+                                </section>
+                                <section class="section-eachProduct">
+                                    <h3>ケーキ3</h3>
+                                    <img src="./images/product/cake-03_1280_853.jpg" width="1280" height="853" alt="product3">
+                                    <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
+                                    <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
+                                </section>
+                                <section class="section-eachProduct">
+                                    <h3>ケーキ4</h3>
+                                    <img src="./images/product/cake-04_1280_847.jpg" width="1280" height="847" alt="product4">
+                                    <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
+                                    <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
+                                </section>
+                            </div> <!-- /.flex-section -->
+                        </div> <!-- /.contentsMaxWidth /.contentsSidePadding -->
+                    </section> <!-- /#productCategory0 -->
 
-                        <section id="productCategory1">
-                            <h2>製品カテゴリ1</h2>
-                            <section>
-                                <h3>製品5</h3>
-                                <img src="https://picsum.photos/300/200" width="300" height="200" alt="product5">
-                                <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
-                                <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
-                            </section>
-                            <section>
-                                <h3>製品6</h3>
-                                <img src="https://picsum.photos/300/200" width="300" height="200" alt="product6">
-                                <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
-                                <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
-                            </section>
-                            <section>
-                                <h3>製品7</h3>
-                                <img src="https://picsum.photos/300/200" width="300" height="200" alt="product7">
-                                <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
-                                <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
-                            </section>
-                        </section> <!-- /#productCategory0 -->
+                    <section id="productCategory1" class="articleSection">
+                        <div class="contentsMaxWidth contentsSidePadding">
+                            <h2 class="articleSectionTitle">ドーナツ</h2>
+                            <div class="flex-section">
+                                <section class="section-eachProduct">
+                                    <h3>ドーナツ0</h3>
+                                    <img src="./images/product/doughnut-00_1280_853.jpg" width="1280" height="853" alt="product5">
+                                    <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
+                                    <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
+                                </section>
+                                <section class="section-eachProduct">
+                                    <h3>ドーナツ1</h3>
+                                    <img src="./images/product/doughnut-01_1280_850.jpg" width="1280" height="850" alt="product6">
+                                    <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
+                                    <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
+                                </section>
+                                <section class="section-eachProduct">
+                                    <h3>ドーナツ2</h3>
+                                    <img src="./images/product/doughnut-02_1280_853.jpg" width="1280" height="853" alt="product7">
+                                    <p>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</p>
+                                    <P>製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。製品説明。</P>
+                                </section>
+                            </div> <!-- /.flex-section -->
+                        </div> <!-- /.contentsMaxWidth /.contentsSidePadding -->
+                    </section> <!-- /#productCategory1 -->
 
-                    </div> <!-- /.articleBodyMain -->
-                </div> <!-- /.articleBody -->
-            </article> <!-- /.mainArticle -->
+                </div> <!-- /.articleBody /.flex-articleBody -->
+            </article>
         </main> <!-- /#pageMain -->
 
         <footer id="pageFooter">
-            <div class="footerInfo">
-                <div class="companyLogo">
-                    <img src="./images/common/logo_transparent.png" alt="SUGAR BOMBER" width="1012" height="345">
+            <div class="contentsMaxWidth contentsSidePadding">
+                <div class="footerInfo">
+                    <div class="companyLogo">
+                        <img src="./images/common/logo_transparent.png" alt="SUGAR BOMBER" width="1012" height="345">
+                    </div>
+                    <address>
+                        &#12306;100-0014<br>
+                        東京都千代田区永田町１丁目７−１<br>
+                        TEL 000-000-0000
+                    </address>
                 </div>
-                <address>
-                    &#12306;100-0014<br>
-                    東京都千代田区永田町１丁目７−１<br>
-                    TEL 000-000-0000
-                </address>
-            </div>
-            <nav class="footerNav">
-                <ul>
-                    <li><a href="./index.html">HOME</a></li>
-                    <li><a href="./product.html">PRODUCT</a></li>
-                    <li><a href="./aboutUs.html">ABOUT US</a></li>
-                    <li><a href="./gallery.html">GALLERY</a></li>
-                    <li><a href="./contact.html">CONTACT</a></li>
-                </ul>
-            </nav>
-            <p id="copyright">
-                <small>
-                    &copy; 2020-<script>document.write(new Date().getFullYear());</script>, Sugar Company.
-                </small>
-            </p>
+                <nav class="footerNav">
+                    <ul>
+                        <li><a href="./index.html">HOME</a></li>
+                        <li><a href="./product.html">PRODUCT</a></li>
+                        <li><a href="./aboutUs.html">ABOUT US</a></li>
+                        <li><a href="./gallery.html">GALLERY</a></li>
+                        <li><a href="./contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <p id="copyright">
+                    <small>
+                        &copy; 2020-<script>document.write(new Date().getFullYear());</script>, Sugar Company.
+                    </small>
+                </p>
+            </div> <!-- /.contentsMaxWidth /.contentsSidePadding -->
         </footer>
 
     </div>
