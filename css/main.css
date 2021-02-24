@@ -160,6 +160,16 @@ img {
     display: none;
 }
 
+/* for wide screen */
+/* ============================================ */
+
+@media screen and (min-width: 800px) {
+
+    #pageHeader #sideMenuButton {
+        display: none;
+    }
+}
+
 
 /* side menu */
 /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
@@ -201,6 +211,16 @@ img {
 }
 #sideMenu .globalNav .parent-ul .parent-li:not(.open) .child-ul {
     display: none;
+}
+
+/* for wide screen */
+/* ============================================ */
+
+@media screen and (min-width: 800px) {
+
+    #sideMenu {
+        display: none;
+    }
 }
 
 
