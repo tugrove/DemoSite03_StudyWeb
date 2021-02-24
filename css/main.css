@@ -20,6 +20,7 @@
     --outline-color-focus: rgb(0, 0, 0);
     /* border-color */
     --border-color-basic: rgb(0, 0, 0);
+    --border-color-link: rgb(209, 58, 176);
     /* shadow-color */
     --shadow-color-dark: rgba(0, 0, 0, .7);
     /* background-color */
@@ -167,6 +168,28 @@ img {
     width: 7.5em;
     padding: 1em 1.5em 1em;
     background-color: var(--background-color-pageHeader);
+}
+
+/* global nav's animation */
+#pageHeader .globalNav a {
+    position: relative;
+}
+#pageHeader .globalNav a:hover {
+    opacity: 1;
+}
+#pageHeader .globalNav a::after {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    display: block;
+    content: '';
+    width: 0;
+    height: 1px;
+    background: var(--border-color-link);
+    transition: width .2s ease;
+}
+#pageHeader .globalNav a:hover::after {
+    width: calc(100% + 1px);
 }
 
 /* for wide screen */
