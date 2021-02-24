@@ -33,7 +33,7 @@
     --line-height-basic: 1.8;
     /* size, length, width, or height */
     --width-contentsMaxWidth: 1080px;
-    --length-sidePadding: 2rem;
+    --width-sidePadding: 2rem;
     --height-pageHeader: 4rem;
     --width-sideMenu: 100vw;
     /* others */
@@ -80,12 +80,12 @@ img {
 
 /* side padding for narrow screen */
 .contentsSidePadding {
-    margin: 0 var(--length-sidePadding);
+    padding: 0 var(--width-sidePadding);
 }
 @media screen and (min-width: 1080px) {
 
     .contentsSidePadding {
-        padding: 0 max(0px, calc(var(--length-sidePadding) - (100vw - 1080px) / 2));
+        padding: 0 max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
     }
 }
 
@@ -101,8 +101,9 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     height: var(--height-pageHeader);
+    padding: 0 calc(var(--width-sidePadding) / 2);
     background: var(--background-color-pageHeader);
 }
 #pageHeader .flex-pageHeader {
@@ -124,7 +125,7 @@ img {
 #pageHeader #sideMenuButton {
     position: absolute;
     top: calc((var(--height-pageHeader) - 2em) / 2); /* calc((ページヘッダの高さ - ボタンの高さ) / 2) */
-    left: calc(var(--length-sidePadding) / 2);
+    left: calc(var(--width-sidePadding) / 2);
     width: 3em;
     height: 2em;
     display: flex;
@@ -347,7 +348,7 @@ img {
 
 /* breadcrumbs */
 #pageMain .breadcrumbs {
-    margin: .5em calc(var(--length-sidePadding) / 2);
+    padding: .5em calc(var(--width-sidePadding) / 2);
 }
 #pageMain .breadcrumbs ul {
     display: flex;
