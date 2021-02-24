@@ -172,7 +172,7 @@ img {
 /* for wide screen */
 /* ============================================ */
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
 
     /* page header itself */
     #pageHeader .flex-pageHeader {
@@ -250,7 +250,7 @@ img {
 /* for wide screen */
 /* ============================================ */
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
 
     #sideMenu {
         display: none;
