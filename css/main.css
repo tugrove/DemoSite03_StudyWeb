@@ -303,17 +303,40 @@ img {
 /* address */
 #pageFooter address {
     margin: 2em 0;
+    font-size: .9rem;
 }
 
 /* footer nav */
 #pageFooter .footerNav {
     display: none;
+    margin: 0 2em;
+}
+#pageFooter .footerNav ul {
+    display: flex;
+    justify-content: center;
+    font-size: .9rem;
+}
+#pageFooter .footerNav ul li:first-child::before,
+#pageFooter .footerNav ul li::after {
+    content: "|";
+    padding: 0 1em;
 }
 
 /* copyright */
 #pageFooter #copyright {
     margin: 3em 0 0;
+    font-size: .9rem;
     text-align: center;
+}
+
+/* for wide screen */
+/* -------------------------------------------- */
+
+@media screen and (min-width: 800px) {
+
+    #pageFooter .footerNav {
+        display: block;
+    }
 }
 
 
