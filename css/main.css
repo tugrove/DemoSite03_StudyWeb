@@ -88,19 +88,6 @@ img {
     }
 }
 
-/* global nav common settings*/
-.globalNav .parent-ul .parent-li span::before {
-    font-family: "Font Awesome 5 Free";
-	font-weight: 900;
-    padding: 0 .3em 0 0;
-}
-.globalNav .parent-ul .parent-li:not(.open) span::before {
-    content: "\f0da";
-}
-.globalNav .parent-ul .parent-li.open span::before {
-    content: "\f0d7"
-}
-
 
 /* page header */
 /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
@@ -158,6 +145,28 @@ img {
 /* global nav */
 #pageHeader .globalNav {
     display: none;
+    align-self: flex-end;
+    margin: 0 0 .5em;
+}
+#pageHeader .globalNav .parent-ul {
+    display: flex;
+    gap: 2em;
+}
+#pageHeader .globalNav .parent-ul .parent-li {
+    position: relative;
+}
+#pageHeader .globalNav .parent-ul .parent-li .child-ul {
+    display: none;
+}
+#pageHeader .globalNav .parent-ul .parent-li:hover .child-ul {
+    position: absolute;
+    left: -1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 7.5em;
+    padding: 1em 1.5em 1em;
+    background-color: var(--background-color-pageHeader);
 }
 
 /* for wide screen */
@@ -165,8 +174,19 @@ img {
 
 @media screen and (min-width: 800px) {
 
+    /* page header itself */
+    #pageHeader .flex-pageHeader {
+        justify-content: space-between;
+    }
+
+    /* side menu button */
     #pageHeader #sideMenuButton {
         display: none;
+    }
+
+    /* global nav */
+    #pageHeader .globalNav {
+        display: block;
     }
 }
 
@@ -201,6 +221,20 @@ img {
     align-items: center;
     gap: 2.5em;
     font-size: 1.2rem;
+}
+#sideMenu .globalNav .parent-ul .parent-li span:hover {
+    cursor: pointer;
+}
+#sideMenu .globalNav .parent-ul .parent-li span::before {
+    font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+    padding: 0 .3em 0 0;
+}
+#sideMenu .globalNav .parent-ul .parent-li:not(.open) span::before {
+    content: "\f0da";
+}
+#sideMenu .globalNav .parent-ul .parent-li.open span::before {
+    content: "\f0d7";
 }
 #sideMenu .globalNav .parent-ul .parent-li .child-ul {
     margin: 1em 0 0 1.5em;
