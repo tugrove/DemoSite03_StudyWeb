@@ -356,15 +356,19 @@ img {
 
 /* article header */
 #pageMain .articleHeader {
-    width: 100vw;
-    height: 10em;
+    width: 100%;
+    height: 30vw;
+    min-height: 10em;
+    max-height: 30em;
     background: url(../images/product/background-img_1920_1315.jpg) center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#pageMain .articleHeader .pageTitle {
-    font-size: 1.5rem;
+
+/* page title */
+#pageMain .pageTitle {
+    font-size: max(1.5rem, min(4vw, 3rem));
     color: var(--font-color-pageTitle);
     text-shadow: 1px 1px var(--shadow-color-dark);
 }
