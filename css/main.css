@@ -12,14 +12,14 @@
 /* variable definition */
 :root {
     /* font-color */
-    --font-color-basic: rgb(0, 0, 0);
+    --font-color-default: rgb(0, 0, 0);
     --font-color-link-primary: rgb(0, 0, 0);
     --font-color-link-secondary: rgb(100, 100, 100);
     --font-color-pageTitle: rgb(255, 255, 255);
     /* outline-color */
     --outline-color-focus: rgba(0, 0, 255, .7);
     /* border-color */
-    --border-color-basic: rgb(0, 0, 0);
+    --border-color-primary: rgb(0, 0, 0);
     --border-color-link: rgb(209, 58, 176);
     /* shadow-color */
     --shadow-color-dark: rgba(0, 0, 0, .7);
@@ -30,8 +30,9 @@
     --background-color-sideMenu: rgb(255, 245, 245);
     --background-color-pageFooter: rgb(255, 255, 255);
     --background-color-button-primary: rgba(255, 255, 255, .6);
+    --background-color-button-active: rgba(101, 206, 238, 0.6);
     /* line-height */
-    --line-height-basic: 1.8;
+    --line-height-default: 1.8;
     /* size, length, width, or height */
     --width-contentsMaxWidth: 1080px;
     --width-sidePadding: 2rem;
@@ -46,8 +47,8 @@
 body {
     font-size: inherit;
     font-family: 'Noto Serif JP', serif;
-    line-height: var(--line-height-basic);
-    color: var(--font-color-basic);
+    line-height: var(--line-height-default);
+    color: var(--font-color-default);
     background: var(--background-color-primary);
 }
 
@@ -136,8 +137,13 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: solid 1px var(--border-color-basic);
-    border-bottom: solid 1px var(--border-color-basic);
+    border-top: solid 1px var(--border-color-primary);
+    border-bottom: solid 1px var(--border-color-primary);
+    background: var(--background-color-button-primary);
+    transition: background-color .3s ease;
+}
+#pageHeader #sideMenuButton:active {
+    background: var(--background-color-button-active);
 }
 #pageHeader #sideMenuButton .sideMenuButtonLetter {
     font-size: .7rem;
@@ -476,7 +482,7 @@ img {
     min-width: 12em;
     max-width: 20em;
     height: 4em;
-    border: solid 1px var(--border-color-basic);
+    border: solid 1px var(--border-color-primary);
     background: var(--background-color-button-primary);
 }
 .page-product #pageMain .moreDetailButton .fa-external-link-alt {
