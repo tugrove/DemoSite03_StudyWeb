@@ -290,7 +290,8 @@ img {
 
 /* page footer itself */
 #pageFooter {
-    padding: 2em 0 3em;
+    padding: 0 0 3em;
+    padding-top: max(2em, min(5vw, 5em));
     background: var(--background-color-pageFooter);
 }
 
