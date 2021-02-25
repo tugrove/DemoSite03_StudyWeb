@@ -499,12 +499,60 @@ img {
     min-width: 12em;
     max-width: 20em;
     height: 4em;
-    border: solid 1px var(--border-color-primary);
+    /* border: solid 1px var(--border-color-primary); */
     background: var(--background-color-button-primary);
 }
 .page-product #pageMain .moreDetailButton .fa-external-link-alt {
     position: absolute;
     right: 1em;
+}
+
+/* more detail button animation */
+.page-product #pageMain .moreDetailButton {
+    border-top: solid 1px var(--border-color-primary);
+    border-bottom: solid 1px var(--border-color-primary);
+}
+.page-product #pageMain .moreDetailButton::before,
+.page-product #pageMain .moreDetailButton::after,
+.page-product #pageMain .moreDetailButton span::before,
+.page-product #pageMain .moreDetailButton span::after {
+    position: absolute;
+    display: block;
+    content: '';
+    background: var(--border-color-primary);
+}
+.page-product #pageMain .moreDetailButton::before,
+.page-product #pageMain .moreDetailButton::after {
+    width: 0;
+    height: 1px;
+}
+.page-product #pageMain .moreDetailButton span::before,
+.page-product #pageMain .moreDetailButton span::after {
+    width: 1px;
+    height: calc(100% + 1px);
+}
+.page-product #pageMain .moreDetailButton::before,
+.page-product #pageMain .moreDetailButton span::before {
+    top: -1px;
+    right: -1px;
+}
+.page-product #pageMain .moreDetailButton::after,
+.page-product #pageMain .moreDetailButton span::after {
+    bottom: -1px;
+    left: -1px;
+}
+.page-product #pageMain .moreDetailButton:hover {
+    border: none;
+}
+.page-product #pageMain .moreDetailButton:hover::before,
+.page-product #pageMain .moreDetailButton:hover::after {
+    width: calc(100% + 1px);
+    transition: all .4s ease-in;
+}
+.page-product #pageMain .moreDetailButton:hover span::before,
+.page-product #pageMain .moreDetailButton:hover span::after {
+    height: 0;
+    transition: all .3s ease-out;
 }
 
 /* for wide screen */
