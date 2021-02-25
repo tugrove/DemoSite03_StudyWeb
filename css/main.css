@@ -57,7 +57,9 @@ a {
 a:hover {
     opacity: var(--opacity-hover);
 }
-a:focus-visible {
+
+/* focus */
+*:focus-visible {
     outline: auto var(--outline-color-focus);
 }
 
