@@ -17,7 +17,7 @@
     --font-color-link-secondary: rgb(100, 100, 100);
     --font-color-pageTitle: rgb(255, 255, 255);
     /* outline-color */
-    --outline-color-focus: rgb(0, 0, 0);
+    --outline-color-focus: rgba(0, 0, 255, .7);
     /* border-color */
     --border-color-basic: rgb(0, 0, 0);
     --border-color-link: rgb(209, 58, 176);
@@ -57,12 +57,9 @@ a {
 a:hover {
     opacity: var(--opacity-hover);
 }
-a:focus-visible {
-    outline: auto var(--outline-color-focus);
-}
 
-/* button */
-button:focus-visible {
+/* focus */
+*:focus-visible {
     outline: auto var(--outline-color-focus);
 }
 
@@ -236,10 +233,13 @@ img {
     background: var(--background-color-sideMenu);
     overflow-x: hidden;
     overflow-y: auto;
-    transition: .5s;
+    visibility: hidden;
+    transition: left .3s ease-out, visibility 0s ease .3s;
 }
 #sideMenu.open {
     left: 0;
+    visibility: visible;
+    transition-delay: 0s;
 }
 
 /* global menu */
@@ -253,6 +253,9 @@ img {
 }
 #sideMenu .globalNav .parent-ul .parent-li span:hover {
     cursor: pointer;
+}
+#sideMenu .globalNav .parent-ul .parent-li span:focus:not(:focus-visible) {
+    outline: none;
 }
 #sideMenu .globalNav .parent-ul .parent-li span::before {
     font-family: "Font Awesome 5 Free";
