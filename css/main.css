@@ -17,7 +17,7 @@
     --font-color-link-secondary: rgb(100, 100, 100);
     --font-color-pageTitle: rgb(255, 255, 255);
     /* outline-color */
-    --outline-color-focus: rgb(0, 0, 0);
+    --outline-color-focus: rgba(0, 0, 255, .7);
     /* border-color */
     --border-color-basic: rgb(0, 0, 0);
     --border-color-link: rgb(209, 58, 176);
@@ -60,11 +60,6 @@ a:hover {
 
 /* focus */
 *:focus-visible {
-    outline: auto var(--outline-color-focus);
-}
-
-/* button */
-button:focus-visible {
     outline: auto var(--outline-color-focus);
 }
 
@@ -255,6 +250,9 @@ img {
 }
 #sideMenu .globalNav .parent-ul .parent-li span:hover {
     cursor: pointer;
+}
+#sideMenu .globalNav .parent-ul .parent-li span:focus {
+    outline: auto var(--outline-color-focus);
 }
 #sideMenu .globalNav .parent-ul .parent-li span::before {
     font-family: "Font Awesome 5 Free";
