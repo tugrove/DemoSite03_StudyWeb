@@ -11,7 +11,7 @@ const operateSideMenu = {
     open: function() {
         $(`#sideMenuButton`).addClass(OPEN);
         $(`#sideMenu`).addClass(OPEN);
-        this.globalNav.closeChildUl();
+        this.globalNav.closeAllChildUl();
     },
 
     close: function() {
@@ -34,11 +34,7 @@ const operateSideMenu = {
             elem.classList.toggle(OPEN);
         },
 
-        openChildUl: function(elem) {
-            elem.classList.add(OPEN);
-        },
-
-        closeChildUl: function() {
+        closeAllChildUl: function() {
             $(`#sideMenu .globalNav .parent-ul .parent-li`).removeClass(OPEN);
         }
     }
@@ -55,13 +51,12 @@ $( () => {
         operateSideMenu.close();
     });
     // サイドメニュー内のアコーディオンメニューを開閉する処理
-    $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click`, event => {
-        const parent = event.currentTarget.parentElement;
-        operateSideMenu.globalNav.toggleChildUl(parent);
-    });
-    $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`focus`, event => {
-        const parent = event.currentTarget.parentElement;
-        operateSideMenu.globalNav.openChildUl(parent);
+    $(`#sideMenu .globalNav .parent-ul .parent-li`).on(`click keydown`, `span`, event => {
+        const parent = event.delegateTarget;
+        const keyCode = event.keyCode;
+        if (!keyCode || keyCode === 13) {
+            operateSideMenu.globalNav.toggleChildUl(parent);
+        }
     });
 });
 
