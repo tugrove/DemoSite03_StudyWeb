@@ -20,6 +20,7 @@
     --outline-color-focus: rgb(0, 0, 0);
     /* border-color */
     --border-color-basic: rgb(0, 0, 0);
+    --border-color-link: rgb(209, 58, 176);
     /* shadow-color */
     --shadow-color-dark: rgba(0, 0, 0, .7);
     /* background-color */
@@ -28,11 +29,12 @@
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
     --background-color-pageFooter: rgb(255, 255, 255);
+    --background-color-button-primary: rgba(255, 255, 255, .6);
     /* line-height */
     --line-height-basic: 1.8;
     /* size, length, width, or height */
     --width-contentsMaxWidth: 1080px;
-    --length-sidePadding: 2rem;
+    --width-sidePadding: 2rem;
     --height-pageHeader: 4rem;
     --width-sideMenu: 100vw;
     /* others */
@@ -79,26 +81,13 @@ img {
 
 /* side padding for narrow screen */
 .contentsSidePadding {
-    margin: 0 var(--length-sidePadding);
+    padding: 0 var(--width-sidePadding);
 }
 @media screen and (min-width: 1080px) {
 
     .contentsSidePadding {
-        padding: 0 max(0px, calc(var(--length-sidePadding) - (100vw - 1080px) / 2));
+        padding: 0 max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
     }
-}
-
-/* global nav common settings*/
-.globalNav .parent-ul .parent-li span::before {
-    font-family: "Font Awesome 5 Free";
-	font-weight: 900;
-    padding: 0 .3em 0 0;
-}
-.globalNav .parent-ul .parent-li:not(.open) span::before {
-    content: "\f0da";
-}
-.globalNav .parent-ul .parent-li.open span::before {
-    content: "\f0d7"
 }
 
 
@@ -106,15 +95,17 @@ img {
 /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
 /* basic design */
-/* ============================================ */
+/* -------------------------------------------- */
 
 /* pageHeader itself */
 #pageHeader {
     position: fixed;
+    z-index: 20;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     height: var(--height-pageHeader);
+    padding: 0 calc(var(--width-sidePadding) / 2);
     background: var(--background-color-pageHeader);
 }
 #pageHeader .flex-pageHeader {
@@ -136,7 +127,7 @@ img {
 #pageHeader #sideMenuButton {
     position: absolute;
     top: calc((var(--height-pageHeader) - 2em) / 2); /* calc((ページヘッダの高さ - ボタンの高さ) / 2) */
-    left: calc(var(--length-sidePadding) / 2);
+    left: calc(var(--width-sidePadding) / 2);
     width: 3em;
     height: 2em;
     display: flex;
@@ -158,6 +149,73 @@ img {
 /* global nav */
 #pageHeader .globalNav {
     display: none;
+    align-self: flex-end;
+    margin: 0 0 .5em;
+}
+#pageHeader .globalNav .parent-ul {
+    display: flex;
+    gap: 2em;
+}
+#pageHeader .globalNav .parent-ul .parent-li {
+    position: relative;
+    z-index: 21;
+}
+#pageHeader .globalNav .parent-ul .parent-li .child-ul {
+    display: none;
+}
+#pageHeader .globalNav .parent-ul .parent-li:hover .child-ul {
+    position: absolute;
+    left: -1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 7.5em;
+    padding: 1em 1.5em 1em;
+    background-color: var(--background-color-pageHeader);
+}
+
+/* global nav's animation */
+#pageHeader .globalNav a {
+    position: relative;
+    z-index: 21;
+}
+#pageHeader .globalNav a:hover {
+    opacity: 1;
+}
+#pageHeader .globalNav a::after {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    display: block;
+    content: '';
+    width: 0;
+    height: 1px;
+    background: var(--border-color-link);
+    transition: width .2s ease;
+}
+#pageHeader .globalNav a:hover::after {
+    width: calc(100% + 1px);
+}
+
+/* for wide screen */
+/* -------------------------------------------- */
+
+@media screen and (min-width: 900px) {
+
+    /* page header itself */
+    #pageHeader .flex-pageHeader {
+        justify-content: space-between;
+    }
+
+    /* side menu button */
+    #pageHeader #sideMenuButton {
+        display: none;
+    }
+
+    /* global nav */
+    #pageHeader .globalNav {
+        display: block;
+    }
 }
 
 
@@ -165,11 +223,12 @@ img {
 /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
 /* basic design */
-/* ============================================ */
+/* -------------------------------------------- */
 
 /* side menu itself */
 #sideMenu {
     position: fixed;
+    z-index: 30;
     top: var(--height-pageHeader);
     left: calc(var(--width-sideMenu) * -1);
     bottom: 0;
@@ -192,6 +251,20 @@ img {
     gap: 2.5em;
     font-size: 1.2rem;
 }
+#sideMenu .globalNav .parent-ul .parent-li span:hover {
+    cursor: pointer;
+}
+#sideMenu .globalNav .parent-ul .parent-li span::before {
+    font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+    padding: 0 .3em 0 0;
+}
+#sideMenu .globalNav .parent-ul .parent-li:not(.open) span::before {
+    content: "\f0da";
+}
+#sideMenu .globalNav .parent-ul .parent-li.open span::before {
+    content: "\f0d7";
+}
 #sideMenu .globalNav .parent-ul .parent-li .child-ul {
     margin: 1em 0 0 1.5em;
     display: flex;
@@ -203,16 +276,27 @@ img {
     display: none;
 }
 
+/* for wide screen */
+/* -------------------------------------------- */
+
+@media screen and (min-width: 900px) {
+
+    #sideMenu {
+        display: none;
+    }
+}
+
 
 /* page footer */
 /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
 /* basic design */
-/* ============================================ */
+/* -------------------------------------------- */
 
 /* page footer itself */
 #pageFooter {
-    padding: 2em 0 3em;
+    padding: 0 0 3em;
+    padding-top: max(2em, min(5vw, 5em));
     background: var(--background-color-pageFooter);
 }
 
@@ -225,27 +309,50 @@ img {
 /* address */
 #pageFooter address {
     margin: 2em 0;
+    font-size: .9rem;
 }
 
 /* footer nav */
 #pageFooter .footerNav {
     display: none;
+    margin: 0 2em;
+}
+#pageFooter .footerNav ul {
+    display: flex;
+    justify-content: center;
+    font-size: .9rem;
+}
+#pageFooter .footerNav ul li:first-child::before,
+#pageFooter .footerNav ul li::after {
+    content: "|";
+    padding: 0 1em;
 }
 
 /* copyright */
 #pageFooter #copyright {
     margin: 3em 0 0;
+    font-size: .9rem;
     text-align: center;
+}
+
+/* for wide screen */
+/* -------------------------------------------- */
+
+@media screen and (min-width: 800px) {
+
+    #pageFooter .footerNav {
+        display: block;
+    }
 }
 
 
 /* page main */
 /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
-/* basic design */
+/* common */
 /* ============================================ */
 
-/* common */
+/* basic design */
 /* -------------------------------------------- */
 
 /* page main itself */
@@ -255,22 +362,26 @@ img {
 
 /* article header */
 #pageMain .articleHeader {
-    width: 100vw;
-    height: 10em;
+    width: 100%;
+    height: 30vw;
+    min-height: 10em;
+    max-height: 30em;
     background: url(../images/product/background-img_1920_1315.jpg) center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#pageMain .articleHeader .pageTitle {
-    font-size: 1.5rem;
+
+/* page title */
+#pageMain .pageTitle {
+    font-size: max(1.5rem, min(4vw, 3rem));
     color: var(--font-color-pageTitle);
     text-shadow: 1px 1px var(--shadow-color-dark);
 }
 
 /* breadcrumbs */
 #pageMain .breadcrumbs {
-    margin: .5em calc(var(--length-sidePadding) / 2);
+    padding: .5em calc(var(--width-sidePadding) / 2);
 }
 #pageMain .breadcrumbs ul {
     display: flex;
@@ -300,12 +411,16 @@ img {
     background: var(--background-color-secondary);
 }
 #pageMain .articleSection .articleSectionTitle {
-    margin: 0 0 1em;
-    font-size: 1.5rem;
+    margin: 0 0 2em;
+    font-size: max(1.5rem, min(3.5vw, 2rem));
     text-align: center;
 }
 
+
 /* product page */
+/* ============================================ */
+
+/* basic design */
 /* -------------------------------------------- */
 
 /* flex-section */
@@ -329,5 +444,57 @@ img {
     font-size: 1.2rem;
 }
 .page-product #pageMain .section-eachProduct p {
-    order: 2
+    order: 2;
+}
+.page-product #pageMain .section-eachProduct button {
+    order: 4;
+    margin: 3em 0 0;
+}
+
+/* more detail button */
+.page-product #pageMain .moreDetailButton {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    min-width: 12em;
+    max-width: 20em;
+    height: 4em;
+    border: solid 1px var(--border-color-basic);
+    background: var(--background-color-button-primary);
+}
+.page-product #pageMain .moreDetailButton .fa-external-link-alt {
+    position: absolute;
+    right: 1em;
+}
+
+/* for wide screen */
+/* -------------------------------------------- */
+
+@media screen and (min-width: 500px) {
+
+    /* article section */
+    .page-product #pageMain .articleSection .flex-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        gap: max(2em, min(5vw, 4em));
+    }
+
+    /* section each product */
+    .page-product #pageMain .section-eachProduct {
+        margin: 0 0 3em;
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    /* productCategory1 */
+    .page-product #pageMain #productCategory1 .flex-section {
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+    }
 }
