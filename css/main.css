@@ -233,10 +233,13 @@ img {
     background: var(--background-color-sideMenu);
     overflow-x: hidden;
     overflow-y: auto;
-    transition: .5s;
+    visibility: hidden;
+    transition: left .3s ease-out, visibility 0s ease .3s;
 }
 #sideMenu.open {
     left: 0;
+    visibility: visible;
+    transition-delay: 0s;
 }
 
 /* global menu */
