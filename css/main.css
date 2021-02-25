@@ -254,8 +254,8 @@ img {
 #sideMenu .globalNav .parent-ul .parent-li span:hover {
     cursor: pointer;
 }
-#sideMenu .globalNav .parent-ul .parent-li span:focus {
-    outline: auto var(--outline-color-focus);
+#sideMenu .globalNav .parent-ul .parent-li span:focus:not(:focus-visible) {
+    outline: none;
 }
 #sideMenu .globalNav .parent-ul .parent-li span::before {
     font-family: "Font Awesome 5 Free";
