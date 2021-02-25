@@ -34,6 +34,10 @@ const operateSideMenu = {
             elem.classList.toggle(OPEN);
         },
 
+        openChildUl: function(elem) {
+            elem.classList.add(OPEN);
+        },
+
         closeChildUl: function() {
             $(`#sideMenu .globalNav .parent-ul .parent-li`).removeClass(OPEN);
         }
@@ -54,6 +58,10 @@ $( () => {
     $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click`, event => {
         const parent = event.currentTarget.parentElement;
         operateSideMenu.globalNav.toggleChildUl(parent);
+    });
+    $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`focus`, event => {
+        const parent = event.currentTarget.parentElement;
+        operateSideMenu.globalNav.openChildUl(parent);
     });
 });
 
