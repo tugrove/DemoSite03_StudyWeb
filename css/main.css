@@ -38,7 +38,8 @@
     --height-pageHeader: 4rem;
     --width-sideMenu: 100vw;
     /* others */
-    --opacity-hover: .8;
+    --opacity-hover: .6;
+    --transition-duration-link-opacity: .2s;
 }
 
 /* basic settings */
@@ -54,7 +55,12 @@ body {
 a {
     color: var(--font-color-link-primary);
 }
-a:hover {
+a,
+a *:not(img) {    
+    transition: opacity var(--transition-duration-link-opacity) ease;
+}
+a:hover,
+a:hover * {
     opacity: var(--opacity-hover);
 }
 
@@ -251,8 +257,13 @@ img {
     gap: 2.5em;
     font-size: 1.2rem;
 }
+#sideMenu .globalNav .parent-ul .parent-li span {
+    color: var(--font-color-link-primary);
+    transition: opacity var(--transition-duration-link-opacity) ease;
+}
 #sideMenu .globalNav .parent-ul .parent-li span:hover {
     cursor: pointer;
+    opacity: var(--opacity-hover);
 }
 #sideMenu .globalNav .parent-ul .parent-li span:focus:not(:focus-visible) {
     outline: none;
