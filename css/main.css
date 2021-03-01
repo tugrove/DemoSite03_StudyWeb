@@ -20,7 +20,7 @@
     --outline-color-focus: rgba(0, 0, 255, .7);
     /* border-color */
     --border-color-primary: rgb(0, 0, 0);
-    --border-color-link: rgb(209, 58, 176);
+    --border-color-secondary: rgb(209, 58, 176);
     /* shadow-color */
     --shadow-color-dark: rgba(0, 0, 0, .7);
     /* background-color */
@@ -92,6 +92,28 @@ img {
     .contentsSidePadding {
         padding: 0 max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
     }
+}
+
+/* animation */
+/* -------------------------------------------- */
+
+/* underline */
+.animation-underline {
+    position: relative;
+}
+.animation-underline::after {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    display: block;
+    content: '';
+    width: 0;
+    height: 1px;
+    background: var(--border-color-secondary);
+    transition: width .2s ease;
+}
+.animation-underline:hover::after {
+    width: calc(100% + 1px);
 }
 
 
@@ -191,26 +213,12 @@ img {
 
 /* global nav's animation */
 #pageHeader .globalNav a {
-    position: relative;
     z-index: 21;
 }
 #pageHeader .globalNav a:hover {
     opacity: 1;
 }
-#pageHeader .globalNav a::after {
-    position: absolute;
-    bottom: -1px;
-    left: -1px;
-    display: block;
-    content: '';
-    width: 0;
-    height: 1px;
-    background: var(--border-color-link);
-    transition: width .2s ease;
-}
-#pageHeader .globalNav a:hover::after {
-    width: calc(100% + 1px);
-}
+
 
 /* for wide screen */
 /* -------------------------------------------- */
