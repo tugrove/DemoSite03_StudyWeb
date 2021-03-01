@@ -468,12 +468,17 @@ dt {
     height: 30vw;
     min-height: 10em;
     max-height: 30em;
-    background: url(../images/product/background-img_1920_1315.jpg) center center / cover no-repeat;
+    background: center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.page-product #pageMain .articleHeader {
+    background-image: url(../images/product/background-img_1920_1315.jpg);
+}
+.page-aboutUs #pageMain .articleHeader {
+    background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
+}
 /* page title */
 #pageMain .pageTitle {
     font-size: max(1.5rem, min(4vw, 3rem));
