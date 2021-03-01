@@ -511,7 +511,7 @@ th {
     font-size: max(1.5rem, min(3.5vw, 2rem));
     text-align: center;
 }
-#pageMain .argicleSection .flex-section {
+#pageMain .bicolorSection .flex-section {
     display: flex;
     flex-direction: column;
 }
@@ -600,28 +600,20 @@ th {
 /* -------------------------------------------- */
 
 /* section greeting */
-.page-aboutUs #pageMain #aboutUsGreeting h2 {
-    order: 0;
+.page-aboutUs #pageMain #aboutUsGreeting p:first-of-type {
+    margin-top: 3em;
 }
-.page-aboutUs #pageMain #aboutUsGreeting img {
-    order: 1;
-    margin: 1em 0;
-}
-.page-aboutUs #pageMain #aboutUsGreeting p {
-    order: 2;
-    margin: 0;
-}
-.page-aboutUs #pageMain #aboutUsGreeting p:first-child {
-    margin-top: 1em;
-}
-.page-aboutUs #pageMain #aboutUsGreeting p:last-child {
-    margin-bottom: 1em;
+.page-aboutUs #pageMain #aboutUsGreeting p:last-of-type {
+    margin-bottom: 3em;
 }
 .page-aboutUs #pageMain #aboutUsGreeting .signature-president {
-    order: 3;
     align-self: flex-end;
-    width: 10em;
-    margin: 1em 0 0;
+    text-align: right;
+}
+.page-aboutUs #pageMain #aboutUsGreeting .signature-president img {
+    display: inline-block;
+    width: 5em;
+    margin: 2em 0 0;
 }
 
 /* googleMap */
