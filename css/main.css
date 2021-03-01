@@ -399,6 +399,7 @@ dt {
     padding: 0 0 3em;
     padding-top: max(2em, min(5vw, 5em));
     background: var(--background-color-pageFooter);
+    border-top: solid 2px var(--background-color-secondary);
 }
 
 /* company logo */
@@ -653,23 +654,29 @@ dt {
     height: 100%;
 }
 
-/* section each store */
-.page-aboutUs #pageMain .section-eachStore {
+/* section store */
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore {
     display: flex;
     flex-direction: column;
 }
-.page-aboutUs #pageMain .section-eachStore:not(:last-child) {
-    margin: 0 0 5em;
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore:not(:last-child) {
+    margin: 0 0 3em;
 }
-.page-aboutUs #pageMain .section-eachStore img {
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore img {
     order: 0;
-    margin: 0 0 1em;
 }
-.page-aboutUs #pageMain .section-eachStore h3 {
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore h3 {
     order: 1;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin: 1em 0;
 }
-.page-aboutUs #pageMain .section-eachStore table {
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore table {
     order: 2;
-    margin: 1em 0 0;
+    border-collapse: separate;
+    border-spacing: 1em 0;
+    margin: 0 -1em;
+}
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore table th {
+    width: 4em;
+    text-align-last: justify;
 }
