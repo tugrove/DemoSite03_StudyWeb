@@ -20,7 +20,7 @@
     --outline-color-focus: rgba(0, 0, 255, .7);
     /* border-color */
     --border-color-primary: rgb(0, 0, 0);
-    --border-color-link: rgb(209, 58, 176);
+    --border-color-secondary: rgb(209, 58, 176);
     /* shadow-color */
     --shadow-color-dark: rgba(0, 0, 0, .7);
     /* background-color */
@@ -93,6 +93,79 @@ img {
         padding: 0 max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
     }
 }
+
+/* animation */
+/* -------------------------------------------- */
+
+/* underline */
+.animation-underline {
+    position: relative;
+}
+.animation-underline::after {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    display: block;
+    content: '';
+    width: 0;
+    height: 1px;
+    background: var(--border-color-secondary);
+    transition: width .2s ease;
+}
+.animation-underline:hover::after {
+    width: calc(100% + 1px);
+}
+
+/* button */
+.animation-button-outer {
+    position: relative;
+    background: var(--background-color-button-primary);
+    border-top: solid 1px var(--border-color-primary);
+    border-bottom: solid 1px var(--border-color-primary);
+}
+.animation-button-outer::before,
+.animation-button-outer::after,
+.animation-button-outer .animation-button-inner::before,
+.animation-button-outer .animation-button-inner::after {
+    position: absolute;
+    display: block;
+    content: '';
+    background: var(--border-color-primary);
+}
+.animation-button-outer::before,
+.animation-button-outer::after {
+    width: 0;
+    height: 1px;
+}
+.animation-button-outer .animation-button-inner::before,
+.animation-button-outer .animation-button-inner::after {
+    width: 1px;
+    height: calc(100% + 2px);
+}
+.animation-button-outer::before,
+.animation-button-outer .animation-button-inner::before {
+    top: -1px;
+    right: -1px;
+}
+.animation-button-outer::after,
+.animation-button-outer .animation-button-inner::after {
+    bottom: -1px;
+    left: -1px;
+}
+.animation-button-outer:hover {
+    border: none;
+}
+.animation-button-outer:hover::before,
+.animation-button-outer:hover::after {
+    width: calc(100% + 2px);
+    transition: all .4s ease-in;
+}
+.animation-button-outer:hover .animation-button-inner::before,
+.animation-button-outer:hover .animation-button-inner::after {
+    height: 0;
+    transition: all .3s ease-out;
+}
+
 
 
 /* page header */
@@ -191,26 +264,12 @@ img {
 
 /* global nav's animation */
 #pageHeader .globalNav a {
-    position: relative;
     z-index: 21;
 }
 #pageHeader .globalNav a:hover {
     opacity: 1;
 }
-#pageHeader .globalNav a::after {
-    position: absolute;
-    bottom: -1px;
-    left: -1px;
-    display: block;
-    content: '';
-    width: 0;
-    height: 1px;
-    background: var(--border-color-link);
-    transition: width .2s ease;
-}
-#pageHeader .globalNav a:hover::after {
-    width: calc(100% + 1px);
-}
+
 
 /* for wide screen */
 /* -------------------------------------------- */
@@ -490,7 +549,6 @@ img {
 
 /* more detail button */
 .page-product #pageMain .moreDetailButton {
-    position: relative;
     z-index: 10;
     display: flex;
     justify-content: center;
@@ -499,61 +557,12 @@ img {
     min-width: 12em;
     max-width: 20em;
     height: 4em;
-    /* border: solid 1px var(--border-color-primary); */
-    background: var(--background-color-button-primary);
 }
 .page-product #pageMain .moreDetailButton .fa-external-link-alt {
     position: absolute;
     right: 1em;
 }
 
-/* more detail button animation */
-.page-product #pageMain .moreDetailButton {
-    border-top: solid 1px var(--border-color-primary);
-    border-bottom: solid 1px var(--border-color-primary);
-}
-.page-product #pageMain .moreDetailButton::before,
-.page-product #pageMain .moreDetailButton::after,
-.page-product #pageMain .moreDetailButton span::before,
-.page-product #pageMain .moreDetailButton span::after {
-    position: absolute;
-    display: block;
-    content: '';
-    background: var(--border-color-primary);
-}
-.page-product #pageMain .moreDetailButton::before,
-.page-product #pageMain .moreDetailButton::after {
-    width: 0;
-    height: 1px;
-}
-.page-product #pageMain .moreDetailButton span::before,
-.page-product #pageMain .moreDetailButton span::after {
-    width: 1px;
-    height: calc(100% + 1px);
-}
-.page-product #pageMain .moreDetailButton::before,
-.page-product #pageMain .moreDetailButton span::before {
-    top: -1px;
-    right: -1px;
-}
-.page-product #pageMain .moreDetailButton::after,
-.page-product #pageMain .moreDetailButton span::after {
-    bottom: -1px;
-    left: -1px;
-}
-.page-product #pageMain .moreDetailButton:hover {
-    border: none;
-}
-.page-product #pageMain .moreDetailButton:hover::before,
-.page-product #pageMain .moreDetailButton:hover::after {
-    width: calc(100% + 1px);
-    transition: all .4s ease-in;
-}
-.page-product #pageMain .moreDetailButton:hover span::before,
-.page-product #pageMain .moreDetailButton:hover span::after {
-    height: 0;
-    transition: all .3s ease-out;
-}
 
 /* for wide screen */
 /* -------------------------------------------- */
