@@ -82,6 +82,11 @@ th {
     font-weight: inherit;
 }
 
+/* dl */
+dt {
+    font-weight: inherit;
+}
+
 /* max width of contents */
 .contentsMaxWidth {
     max-width: var(--width-contentsMaxWidth);
@@ -616,12 +621,29 @@ th {
     margin: 2em 0 0;
 }
 
+/* section overview */
+.page-aboutUs #pageMain #aboutUsOverview .companyInfo {
+    display: grid;
+    grid-template-columns: 25% 65%;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+    gap: 0 10%;
+    margin: 2em 0 3em;
+}
+.page-aboutUs #pageMain #aboutUsOverview .companyInfo dt {
+    padding: 1em 0;
+    border-bottom: solid 1px var(--border-color-secondary);
+}
+.page-aboutUs #pageMain #aboutUsOverview .companyInfo dd {
+    padding: 1em 0;
+    border-bottom: solid 1px var(--border-color-primary);
+}
+
 /* googleMap */
 .page-aboutUs #pageMain .googleMap {
     position: relative;
     z-index: 10;
     width: 100%;
-    padding: calc(100% / 1080 * 600) 0 0; /* calc(100% / iframeの幅 + iframeの高さ) */
+    padding: calc(100% / 1080 * 900) 0 0; /* calc(100% / iframeの幅 + iframeの高さ) */
 }
 .page-aboutUs #pageMain .googleMap iframe {
     position: absolute;
