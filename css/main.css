@@ -77,6 +77,11 @@ img {
     display: block;
 }
 
+/* table */
+th {
+    font-weight: inherit;
+}
+
 /* max width of contents */
 .contentsMaxWidth {
     max-width: var(--width-contentsMaxWidth);
@@ -506,7 +511,10 @@ img {
     font-size: max(1.5rem, min(3.5vw, 2rem));
     text-align: center;
 }
-
+#pageMain .argicleSection .flex-section {
+    display: flex;
+    flex-direction: column;
+}
 
 /* product page */
 /* ============================================ */
@@ -516,33 +524,33 @@ img {
 
 /* flex-section */
 .page-product #pageMain .flex-section {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     /* gap: 5em; */
 }
 
 /* section each product */
-.page-product #pageMain .section-eachProduct {
+.page-product #pageMain .articleSection .section-eachProduct {
     display: flex;
     flex-direction: column;
     /* gap: 1em; */
 }
-.page-product #pageMain .section-eachProduct:not(:last-child) {
+.page-product #pageMain .articleSection .section-eachProduct:not(:last-child) {
     margin: 0 0 5em;
 }
-.page-product #pageMain .section-eachProduct img {
+.page-product #pageMain .articleSection .section-eachProduct img {
     order: 0;
     margin: 0 0 1em;
 }
-.page-product #pageMain .section-eachProduct h3 {
+.page-product #pageMain .articleSection .section-eachProduct h3 {
     order: 1;
     font-size: 1.2rem;
 }
-.page-product #pageMain .section-eachProduct p {
+.page-product #pageMain .articleSection .section-eachProduct p {
     order: 2;
     margin: 1em 0;
 }
-.page-product #pageMain .section-eachProduct button {
+.page-product #pageMain .articleSection .section-eachProduct button {
     order: 3;
     margin: 3em 0 0;
 }
@@ -578,7 +586,7 @@ img {
     }
 
     /* section each product */
-    .page-product #pageMain .section-eachProduct {
+    .page-product #pageMain .articleSection .section-eachProduct {
         margin: 0 0 3em;
     }
 }
@@ -591,4 +599,79 @@ img {
         grid-template-rows: auto;
         gap: 2em;
     }
+}
+
+
+/* about us page */
+/* ============================================ */
+
+/* basic design */
+/* -------------------------------------------- */
+
+/* flex-section */
+.page-aboutUs #pageMain .flex-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* section greeting */
+.page-aboutUs #pageMain #aboutUsGreeting h2 {
+    order: 0;
+}
+.page-aboutUs #pageMain #aboutUsGreeting img {
+    order: 1;
+    margin: 1em 0;
+}
+.page-aboutUs #pageMain #aboutUsGreeting p {
+    order: 2;
+    margin: 0;
+}
+.page-aboutUs #pageMain #aboutUsGreeting p:first-child {
+    margin-top: 1em;
+}
+.page-aboutUs #pageMain #aboutUsGreeting p:last-child {
+    margin-bottom: 1em;
+}
+.page-aboutUs #pageMain #aboutUsGreeting .signature-president {
+    order: 3;
+    align-self: flex-end;
+    width: 10em;
+    margin: 1em 0 0;
+}
+
+
+/* googleMap */
+.page-aboutUs #pageMain .googleMap {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: calc(100% / 1080 * 600) 0 0; /* calc(100% / iframeの幅 + iframeの高さ) */
+}
+.page-aboutUs #pageMain .googleMap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* section each store */
+.page-aboutUs #pageMain .section-eachStore {
+    display: flex;
+    flex-direction: column;
+}
+.page-aboutUs #pageMain .section-eachStore:not(:last-child) {
+    margin: 0 0 5em;
+}
+.page-aboutUs #pageMain .section-eachStore img {
+    order: 0;
+    margin: 0 0 1em;
+}
+.page-aboutUs #pageMain .section-eachStore h3 {
+    order: 1;
+    font-size: 1.2rem;
+}
+.page-aboutUs #pageMain .section-eachStore table {
+    order: 2;
+    margin: 1em 0 0;
 }
