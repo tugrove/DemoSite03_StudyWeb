@@ -526,26 +526,24 @@ th {
 .page-product #pageMain .section-eachProduct {
     display: flex;
     flex-direction: column;
-    /* gap: 1em; */
 }
 .page-product #pageMain .section-eachProduct:not(:last-child) {
     margin: 0 0 5em;
 }
 .page-product #pageMain .section-eachProduct img {
     order: 0;
-    margin: 0 0 1em;
 }
 .page-product #pageMain .section-eachProduct h3 {
     order: 1;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin: 1em 0;
 }
 .page-product #pageMain .section-eachProduct p {
     order: 2;
-    margin: 1em 0;
 }
 .page-product #pageMain .section-eachProduct button {
     order: 3;
-    margin: 3em 0 0;
+    margin: 4em 1em 0;
 }
 
 /* more detail button */
