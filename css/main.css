@@ -499,14 +499,14 @@ th {
     justify-items: center;
 }
 
-/* articelSection */
-#pageMain .articleSection {
+/* bicolor section */
+#pageMain .bicolorSection {
     padding: 4em 0 6em;
 }
-#pageMain .articleSection:nth-child(2n) {
+#pageMain .bicolorSection:nth-child(2n) {
     background: var(--background-color-secondary);
 }
-#pageMain .articleSection .articleSectionTitle {
+#pageMain .bicolorSection .bicolorSectionHeading {
     margin: 0 0 2em;
     font-size: max(1.5rem, min(3.5vw, 2rem));
     text-align: center;
@@ -522,35 +522,28 @@ th {
 /* basic design */
 /* -------------------------------------------- */
 
-/* flex-section */
-.page-product #pageMain .flex-section {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* gap: 5em; */
-}
-
 /* section each product */
-.page-product #pageMain .articleSection .section-eachProduct {
+.page-product #pageMain .section-eachProduct {
     display: flex;
     flex-direction: column;
     /* gap: 1em; */
 }
-.page-product #pageMain .articleSection .section-eachProduct:not(:last-child) {
+.page-product #pageMain .section-eachProduct:not(:last-child) {
     margin: 0 0 5em;
 }
-.page-product #pageMain .articleSection .section-eachProduct img {
+.page-product #pageMain .section-eachProduct img {
     order: 0;
     margin: 0 0 1em;
 }
-.page-product #pageMain .articleSection .section-eachProduct h3 {
+.page-product #pageMain .section-eachProduct h3 {
     order: 1;
     font-size: 1.2rem;
 }
-.page-product #pageMain .articleSection .section-eachProduct p {
+.page-product #pageMain .section-eachProduct p {
     order: 2;
     margin: 1em 0;
 }
-.page-product #pageMain .articleSection .section-eachProduct button {
+.page-product #pageMain .section-eachProduct button {
     order: 3;
     margin: 3em 0 0;
 }
@@ -578,7 +571,7 @@ th {
 @media screen and (min-width: 500px) {
 
     /* article section */
-    .page-product #pageMain .articleSection .flex-section {
+    .page-product #pageMain .bicolorSection .flex-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
@@ -586,7 +579,7 @@ th {
     }
 
     /* section each product */
-    .page-product #pageMain .articleSection .section-eachProduct {
+    .page-product #pageMain .section-eachProduct {
         margin: 0 0 3em;
     }
 }
@@ -607,12 +600,6 @@ th {
 
 /* basic design */
 /* -------------------------------------------- */
-
-/* flex-section */
-.page-aboutUs #pageMain .flex-section {
-    display: flex;
-    flex-direction: column;
-}
 
 /* section greeting */
 .page-aboutUs #pageMain #aboutUsGreeting h2 {
@@ -638,7 +625,6 @@ th {
     width: 10em;
     margin: 1em 0 0;
 }
-
 
 /* googleMap */
 .page-aboutUs #pageMain .googleMap {
