@@ -35,7 +35,7 @@
     --line-height-default: 1.8;
     /* size, length, width, or height */
     --width-contentsMaxWidth: 1080px;
-    --width-sidePadding: 2rem;
+    --width-sidePadding: 1.5rem;
     --height-pageHeader: 4rem;
     --width-sideMenu: 100vw;
     /* others */
