@@ -614,6 +614,11 @@ dt {
 /* -------------------------------------------- */
 
 /* section greeting */
+.page-aboutUs #pageMain #aboutUsGreeting .backgroundImg {
+    width: 100%;
+    padding: calc(100% * 851 / 1280) 0 0; /* calc(100% * imgの高さ / imgの幅) */
+    background: url(../images/aboutUs/president_1280_851.jpg) 0 0 / cover no-repeat;
+}
 .page-aboutUs #pageMain #aboutUsGreeting p:first-of-type {
     margin-top: 3em;
 }
@@ -631,6 +636,11 @@ dt {
 }
 
 /* section overview */
+.page-aboutUs #pageMain #aboutUsOverview .backgroundImg {
+    width: 100%;
+    padding: calc(100% * 853 / 1280) 0 0; /* calc(100% * imgの高さ / imgの幅) */
+    background: url(../images/aboutUs/company_1280_853.jpg) 0 0 / cover no-repeat;
+}
 .page-aboutUs #pageMain #aboutUsOverview .companyInfo {
     display: grid;
     grid-template-columns: 25% 65%;
