@@ -77,20 +77,33 @@ img {
     display: block;
 }
 
+/* table */
+th {
+    font-weight: inherit;
+}
+
+/* dl */
+dt {
+    font-weight: inherit;
+}
+
 /* max width of contents */
 .contentsMaxWidth {
     max-width: var(--width-contentsMaxWidth);
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* side padding for narrow screen */
-.contentsSidePadding {
-    padding: 0 var(--width-sidePadding);
+.sidePadding {
+    padding-left: var(--width-sidePadding);
+    padding-right: var(--width-sidePadding);
 }
 @media screen and (min-width: 1080px) {
 
-    .contentsSidePadding {
-        padding: 0 max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
+    .sidePadding {
+        padding-left: max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
+        padding-right: max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
     }
 }
 
@@ -389,6 +402,7 @@ img {
     padding: 0 0 3em;
     padding-top: max(2em, min(5vw, 5em));
     background: var(--background-color-pageFooter);
+    border-top: solid 2px var(--background-color-secondary);
 }
 
 /* company logo */
@@ -457,12 +471,17 @@ img {
     height: 30vw;
     min-height: 10em;
     max-height: 30em;
-    background: url(../images/product/background-img_1920_1315.jpg) center center / cover no-repeat;
+    background: center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.page-product #pageMain .articleHeader {
+    background-image: url(../images/product/background-img_1920_1315.jpg);
+}
+.page-aboutUs #pageMain .articleHeader {
+    background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
+}
 /* page title */
 #pageMain .pageTitle {
     font-size: max(1.5rem, min(4vw, 3rem));
@@ -494,19 +513,22 @@ img {
     justify-items: center;
 }
 
-/* articelSection */
-#pageMain .articleSection {
+/* bicolor section */
+#pageMain .bicolorSection {
     padding: 4em 0 6em;
 }
-#pageMain .articleSection:nth-child(2n) {
+#pageMain .bicolorSection:nth-child(2n) {
     background: var(--background-color-secondary);
 }
-#pageMain .articleSection .articleSectionTitle {
+#pageMain .bicolorSection .bicolorSectionHeading {
     margin: 0 0 2em;
     font-size: max(1.5rem, min(3.5vw, 2rem));
     text-align: center;
 }
-
+#pageMain .bicolorSection .flex-section {
+    display: flex;
+    flex-direction: column;
+}
 
 /* product page */
 /* ============================================ */
@@ -514,37 +536,28 @@ img {
 /* basic design */
 /* -------------------------------------------- */
 
-/* flex-section */
-.page-product #pageMain .flex-section {
-    display: flex;
-    flex-direction: column;
-    /* gap: 5em; */
-}
-
 /* section each product */
 .page-product #pageMain .section-eachProduct {
     display: flex;
     flex-direction: column;
-    /* gap: 1em; */
 }
 .page-product #pageMain .section-eachProduct:not(:last-child) {
     margin: 0 0 5em;
 }
 .page-product #pageMain .section-eachProduct img {
     order: 0;
-    margin: 0 0 1em;
 }
 .page-product #pageMain .section-eachProduct h3 {
     order: 1;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin: 1em 0;
 }
 .page-product #pageMain .section-eachProduct p {
     order: 2;
-    margin: 1em 0;
 }
 .page-product #pageMain .section-eachProduct button {
     order: 3;
-    margin: 3em 0 0;
+    margin: 4em 1em 0;
 }
 
 /* more detail button */
@@ -570,7 +583,7 @@ img {
 @media screen and (min-width: 500px) {
 
     /* article section */
-    .page-product #pageMain .articleSection .flex-section {
+    .page-product #pageMain .bicolorSection .flex-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
@@ -591,4 +604,97 @@ img {
         grid-template-rows: auto;
         gap: 2em;
     }
+}
+
+
+/* about us page */
+/* ============================================ */
+
+/* basic design */
+/* -------------------------------------------- */
+
+/* section greeting */
+.page-aboutUs #pageMain #aboutUsGreeting .backgroundImg {
+    width: 100%;
+    padding: calc(100% * 851 / 1280) 0 0; /* calc(100% * imgの高さ / imgの幅) */
+    background: url(../images/aboutUs/president_1280_851.jpg) 0 0 / cover no-repeat;
+}
+.page-aboutUs #pageMain #aboutUsGreeting p:first-of-type {
+    margin-top: 3em;
+}
+.page-aboutUs #pageMain #aboutUsGreeting p:last-of-type {
+    margin-bottom: 3em;
+}
+.page-aboutUs #pageMain #aboutUsGreeting .signature-president {
+    align-self: flex-end;
+    text-align: right;
+}
+.page-aboutUs #pageMain #aboutUsGreeting .signature-president img {
+    display: inline-block;
+    width: 5em;
+    margin: 2em 0 0;
+}
+
+/* section overview */
+.page-aboutUs #pageMain #aboutUsOverview .backgroundImg {
+    width: 100%;
+    padding: calc(100% * 853 / 1280) 0 0; /* calc(100% * imgの高さ / imgの幅) */
+    background: url(../images/aboutUs/company_1280_853.jpg) 0 0 / cover no-repeat;
+}
+.page-aboutUs #pageMain #aboutUsOverview .companyInfo {
+    display: grid;
+    grid-template-columns: 25% 65%;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+    gap: 0 10%;
+    margin: 2em 0 3em;
+}
+.page-aboutUs #pageMain #aboutUsOverview .companyInfo dt {
+    padding: 1em 0;
+    border-bottom: solid 1px var(--border-color-secondary);
+}
+.page-aboutUs #pageMain #aboutUsOverview .companyInfo dd {
+    padding: 1em 0;
+    border-bottom: solid 1px var(--border-color-primary);
+}
+
+/* googleMap */
+.page-aboutUs #pageMain .googleMap {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: calc(100% / 1080 * 900) 0 0; /* calc(100% / iframeの幅 + iframeの高さ) */
+}
+.page-aboutUs #pageMain .googleMap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* section store */
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore {
+    display: flex;
+    flex-direction: column;
+}
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore:not(:last-child) {
+    margin: 0 0 3em;
+}
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore img {
+    order: 0;
+}
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore h3 {
+    order: 1;
+    font-size: 1.3rem;
+    margin: 1em 0;
+}
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore table {
+    order: 2;
+    border-collapse: separate;
+    border-spacing: 1em 0;
+    margin: 0 -1em;
+}
+.page-aboutUs #pageMain #aboutUsStore .section-eachStore table th {
+    width: 4em;
+    text-align-last: justify;
 }
