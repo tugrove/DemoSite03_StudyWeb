@@ -90,17 +90,20 @@ dt {
 /* max width of contents */
 .contentsMaxWidth {
     max-width: var(--width-contentsMaxWidth);
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* side padding for narrow screen */
-.contentsSidePadding {
-    padding: 0 var(--width-sidePadding);
+.sidePadding {
+    padding-left: var(--width-sidePadding);
+    padding-right: var(--width-sidePadding);
 }
 @media screen and (min-width: 1080px) {
 
-    .contentsSidePadding {
-        padding: 0 max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
+    .sidePadding {
+        padding-left: max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
+        padding-right: max(0px, calc(var(--width-sidePadding) - (100vw - 1080px) / 2));
     }
 }
 
