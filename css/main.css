@@ -13,6 +13,7 @@
 :root {
     /* font-color */
     --font-color-default: rgb(0, 0, 0);
+    --font-color-emphasis: rgb(209, 58, 176);
     --font-color-link-primary: rgb(0, 0, 0);
     --font-color-link-secondary: rgb(100, 100, 100);
     --font-color-pageTitle: rgb(255, 255, 255);
@@ -720,4 +721,26 @@ dt {
     .page-aboutUs #pageMain #aboutUsStore .section-eachStore:not(:last-child) {
         margin-right: min(5vw, 4em);
     }
+}
+
+
+/* contact page */
+/* ============================================ */
+
+/* basic design */
+/* -------------------------------------------- */
+
+.page-contact #pageMain .required::after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f621';
+	font-weight: 900;
+    font-size: .5em;
+    vertical-align: .2em;
+    color: var(--font-color-emphasis);
+}
+.page-contact #pageMain span.required::after {
+    margin: 0 .5em;
+}
+.page-contact #pageMain label.required::after {
+    margin: 0 0 0 .5em;
 }
