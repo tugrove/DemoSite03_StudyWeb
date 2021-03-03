@@ -13,6 +13,7 @@
 :root {
     /* font-color */
     --font-color-default: rgb(0, 0, 0);
+    --font-color-default-translucent: rgba(0, 0, 0, .3);
     --font-color-emphasis: rgb(209, 58, 176);
     --font-color-link-primary: rgb(0, 0, 0);
     --font-color-link-secondary: rgb(100, 100, 100);
@@ -22,6 +23,7 @@
     /* border-color */
     --border-color-primary: rgb(0, 0, 0);
     --border-color-secondary: rgb(209, 58, 176);
+    --border-color-input: rgb(0, 0, 0);
     /* shadow-color */
     --shadow-color-dark: rgba(0, 0, 0, .7);
     /* background-color */
@@ -30,6 +32,7 @@
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
     --background-color-pageFooter: rgb(255, 255, 255);
+    --background-color-input: rgb(255, 255, 255);
     --background-color-button-primary: rgba(255, 255, 255, .6);
     --background-color-button-active: rgba(101, 206, 238, 0.6);
     /* line-height */
@@ -736,6 +739,7 @@ dt {
 /* basic design */
 /* -------------------------------------------- */
 
+/* required icon */
 .page-contact #pageMain .required::after {
     font-family: "Font Awesome 5 Free";
     content: '\f621';
@@ -749,4 +753,31 @@ dt {
 }
 .page-contact #pageMain label.required::after {
     margin: 0 0 0 .5em;
+}
+
+/* input */
+.page-contact #pageMain .inputWrap {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    background: var(--background-color-input);
+}
+.page-contact #pageMain input,
+.page-contact #pageMain textarea,
+.page-contact #pageMain select {
+    padding: .5em .5em .2em;
+    border: solid 1px var(--border-color-input);
+}
+.page-contact #pageMain input {
+    padding-left: 5em;
+}
+.page-contact #pageMain textarea {
+    padding-bottom: 1em;
+}
+.page-contact #pageMain .inputWrap .letterCounter {
+    position: absolute;
+    right: .5em;
+    bottom: .5em;
+    font-size: .8em;
+    color: var(--font-color-default-translucent);
 }

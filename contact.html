@@ -116,21 +116,38 @@
                             <form action="https://hogehoge.co.jp/hogehoge/" method="POST">
                                 <div class="grid-contact">
                                     <label for="name" class="required">お名前</label>
-                                    <input type="text" id="name" name="name" required maxlength="20">
+                                    <div class="inputWrap">
+                                        <input type="text" id="name" name="name" required maxlength="20">
+                                        <span class="letterCounter">0/20</span>
+                                    </div>
                                     <label for="yomigana">フリガナ</label>
-                                    <input type="text" id="yomigana" name="yomigana" maxlength="30" pattern="[\u30A1-\u30F6]*" title="全角カタカナのみ使用できます">
+                                    <div class="inputWrap">
+                                        <input type="text" id="yomigana" name="yomigana" maxlength="30" pattern="[\u30A1-\u30F6]*" title="全角カタカナのみ使用できます">
+                                        <span class="letterCounter">0/30</span>
+                                    </div>
                                     <label for="phoneNumber" class="required">電話番号</label>
-                                    <input type="tel" id="phoneNumber" name="phoneNumber" required maxlength="15" pattern="[\d\-]*" title="半角数字および半角ハイフンのみ使用できます">
+                                    <div class="inputWrap">
+                                        <input type="tel" id="phoneNumber" name="phoneNumber" required maxlength="15" pattern="[\d\-]*" title="半角数字および半角ハイフンのみ使用できます">
+                                        <span class="letterCounter">0/15</span>
+                                    </div>
                                     <label for="email" class="required">メールアドレス</label>
-                                    <input type="email" id="email" name="email" required maxlength="256">
+                                    <div class="inputWrap">
+                                        <input type="email" id="email" name="email" required maxlength="256">
+                                        <span class="letterCounter">0/256</span>
+                                    </div>
                                     <label for="inquiryType" class="required">お問い合わせ種別</label>
-                                    <select id="inquiryType" name="inquiryType" required>
-                                        <option value="products">製品に関するお問い合わせ</option>
-                                        <option value="publicRelations">広報・取材に関するお問い合わせ</option>
-                                        <option value="others">その他のお問い合わせ</option>
-                                    </select>
+                                    <div class="inputWrap">
+                                        <select id="inquiryType" name="inquiryType" required>
+                                            <option value="products">製品に関するお問い合わせ</option>
+                                            <option value="publicRelations">広報・取材に関するお問い合わせ</option>
+                                            <option value="others">その他のお問い合わせ</option>
+                                        </select>
+                                    </div>
                                     <label for="contentOfInquiry" class="required">お問い合わせ内容</label>
-                                    <textarea id="contentOfInquiry" name="content" required cols="30" rows="10" maxlength="300"></textarea>
+                                    <div class="inputWrap">
+                                        <textarea id="contentOfInquiry" name="content" required cols="50" rows="10" maxlength="500"></textarea>
+                                        <span class="letterCounter">0/500</span>
+                                    </div>
                                 </div> <!-- /.grid-contact -->
                                 <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
                                 <label for="privacyPolicy">プライバシーポリシーに同意します。</label>
