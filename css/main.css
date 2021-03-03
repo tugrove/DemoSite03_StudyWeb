@@ -482,6 +482,10 @@ dt {
 .page-aboutUs #pageMain .articleHeader {
     background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
 }
+.page-contact #pageMain .articleHeader {
+    background-image: url(https://picsum.photos/1980/1280);
+}
+
 /* page title */
 #pageMain .pageTitle {
     font-size: max(1.5rem, min(4vw, 3rem));
