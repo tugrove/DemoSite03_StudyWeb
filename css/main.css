@@ -57,6 +57,12 @@ body {
 a {
     color: var(--font-color-link-primary);
 }
+a[target="_blank"]::after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f35d';
+    font-weight: 900;
+    margin: 0 0 0 .1em;
+}
 a,
 a *:not(img) {    
     transition: opacity var(--transition-duration-link-opacity) ease;
