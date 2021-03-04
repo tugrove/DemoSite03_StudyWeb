@@ -113,30 +113,82 @@
 
                             <p>以下のフォームの項目を入力し、よろしければ「確認画面へ」ボタンをクリックしてください。</p>
                             <p>「<span class=required></span>」マークのついている項目は入力必須項目です。</p>
+
                             <form action="https://hogehoge.co.jp/hogehoge/" method="POST">
-                                <div class="grid-contact">
-                                    <label for="name" class="required">お名前</label>
-                                    <input type="text" id="name" name="name" required maxlength="20">
-                                    <label for="yomigana">フリガナ</label>
-                                    <input type="text" id="yomigana" name="yomigana" maxlength="30" pattern="[\u30A1-\u30F6]*" title="全角カタカナのみ使用できます">
-                                    <label for="phoneNumber" class="required">電話番号</label>
-                                    <input type="tel" id="phoneNumber" name="phoneNumber" required maxlength="15" pattern="[\d\-]*" title="半角数字および半角ハイフンのみ使用できます">
-                                    <label for="email" class="required">メールアドレス</label>
-                                    <input type="email" id="email" name="email" required maxlength="256">
-                                    <label for="inquiryType" class="required">お問い合わせ種別</label>
-                                    <select id="inquiryType" name="inquiryType" required>
-                                        <option value="products">製品に関するお問い合わせ</option>
-                                        <option value="publicRelations">広報・取材に関するお問い合わせ</option>
-                                        <option value="others">その他のお問い合わせ</option>
-                                    </select>
-                                    <label for="contentOfInquiry" class="required">お問い合わせ内容</label>
-                                    <textarea id="contentOfInquiry" name="content" required cols="30" rows="10" maxlength="300"></textarea>
-                                </div> <!-- /.grid-contact -->
-                                <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
-                                <label for="privacyPolicy">プライバシーポリシーに同意します。</label>
-                                <a href="https://www.sangiin.go.jp/" target="_blank">プライバシーポリシーを確認する</a>
-                                <button type="submit" class="animation-button-outer"><span class="animation-button-inner">確認画面へ</span></button>
+                                <div class="grid-form">
+
+                                    <div class="gridItem-label">
+                                        <label for="name" class="required">お名前</label>
+                                    </div>
+                                    <div class="gridItem-input">
+                                        <!-- <div class="inputWrap"> -->
+                                            <input type="text" id="name" class="inputArea" name="name" required maxlength="50">
+                                            <span class="charactorCount">0/50</span>
+                                        <!-- </div> -->
+                                    </div>
+
+                                    <div class="gridItem-label">
+                                        <label for="yomigana">フリガナ</label>
+                                    </div>
+                                    <div class="gridItem-input">
+                                        <!-- <div class="inputWrap"> -->
+                                            <input type="text" id="yomigana" class="inputArea" name="yomigana" maxlength="100" pattern="[\u30A1-\u30F6]*" title="全角カタカナのみ使用できます">
+                                            <span class="charactorCount">0/100</span>
+                                        <!-- </div> -->
+                                    </div>
+
+                                    <div class="gridItem-label">
+                                        <label for="phoneNumber" class="required">電話番号</label>
+                                    </div>
+                                    <div class="gridItem-input">
+                                        <!-- <div class="inputWrap"> -->
+                                            <input type="tel" id="phoneNumber" class="inputArea" name="phoneNumber" required maxlength="15" pattern="[\d\-]*" title="半角数字および半角ハイフンのみ使用できます">
+                                            <span class="charactorCount">0/15</span>
+                                        <!-- </div> -->
+                                    </div>
+
+                                    <div class="gridItem-label">
+                                        <label for="email" class="required">メールアドレス</label>
+                                    </div>
+                                    <div class="gridItem-input">
+                                        <!-- <div class="inputWrap"> -->
+                                            <input type="email" id="email" class="inputArea" name="email" required maxlength="256">
+                                            <span class="charactorCount">0/256</span>
+                                        <!-- </div> -->
+                                    </div>
+
+                                    <div class="gridItem-label">
+                                        <label for="inquiryType" class="required">お問い合わせ種別</label>
+                                    </div>
+                                    <div class="gridItem-input select">
+                                        <!-- <div class="inputWrap"> -->
+                                            <select id="inquiryType" name="inquiryType" required>
+                                                <option value="products">製品に関するお問い合わせ</option>
+                                                <option value="publicRelations">広報・取材に関するお問い合わせ</option>
+                                                <option value="others">その他のお問い合わせ</option>
+                                            </select>
+                                        <!-- </div> -->
+                                    </div>
+
+                                    <div class="gridItem-label">
+                                        <label for="contentOfInquiry" class="required">お問い合わせ内容</label>
+                                    </div>
+                                    <div class="gridItem-input">
+                                        <!-- <div class="inputWrap"> -->
+                                            <textarea id="contentOfInquiry" class="inputArea" name="content" required cols="30" rows="10" maxlength="500"></textarea>
+                                            <span class="charactorCount">0/500</span>
+                                        <!-- </div> -->
+                                    </div>
+
+                                </div> <!-- /.grid-form -->
+                                <div class="privacyPolicy">
+                                    <input type="checkbox" id="privacyPolicyAgreement" name="privacyPolicyAgreement" required>
+                                    <label for="privacyPolicyAgreement">プライバシーポリシーに同意します。</label> <br>
+                                    <a href="https://www.sangiin.go.jp/" target="_blank">プライバシーポリシーを確認する</a>
+                                </div>
+                                <button type="submit" id="submitButton" class="animation-button-outer animation-button-translucent"><span class="animation-button-inner">確認画面へ</span></button>
                             </form>
+
                             <ul>
                                 <li>
                                     メールが届かない場合は、もう一度メールアドレスを確認し、再度送信して下さい。
@@ -146,7 +198,7 @@
                                 </li>
                             </ul>
 
-                        </div> <!-- /.contentsMaxWidth /.sidePadding -->
+                        </div> <!-- /.contentsMaxWidth /.sidePadding /.flex-section -->
                     </section> <!-- /#contactForm -->
 
                 </div> <!-- /.articleBody /.flex-articleBody -->

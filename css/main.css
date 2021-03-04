@@ -13,6 +13,8 @@
 :root {
     /* font-color */
     --font-color-default: rgb(0, 0, 0);
+    --font-color-default-translucent: rgba(0, 0, 0, .3);
+    --font-color-emphasis: rgb(209, 58, 176);
     --font-color-link-primary: rgb(0, 0, 0);
     --font-color-link-secondary: rgb(100, 100, 100);
     --font-color-pageTitle: rgb(255, 255, 255);
@@ -20,7 +22,9 @@
     --outline-color-focus: rgba(0, 0, 255, .7);
     /* border-color */
     --border-color-primary: rgb(0, 0, 0);
+    --border-color-primary-translucent: rgba(0, 0, 0, .2);
     --border-color-secondary: rgb(209, 58, 176);
+    --border-color-input: rgb(0, 0, 0);
     /* shadow-color */
     --shadow-color-dark: rgba(0, 0, 0, .7);
     /* background-color */
@@ -29,6 +33,8 @@
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
     --background-color-pageFooter: rgb(255, 255, 255);
+    --background-color-input: rgba(255, 255, 255, .5);
+    --background-color-input-invalid: rgba(255, 255, 150, .8);
     --background-color-button-primary: rgba(255, 255, 255, .6);
     --background-color-button-active: rgba(101, 206, 238, 0.6);
     /* line-height */
@@ -55,6 +61,14 @@ body {
 /* link */
 a {
     color: var(--font-color-link-primary);
+}
+a[target="_blank"]::after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f35d';
+    font-size: .9em;
+    font-style: normal;
+    font-weight: 900;
+    margin: 0 0 0 .3em;
 }
 a,
 a *:not(img) {    
@@ -166,7 +180,7 @@ dt {
     left: -1px;
 }
 .animation-button-outer:hover {
-    border: none;
+    border-color: rgba(0, 0, 0, 0);
 }
 .animation-button-outer:hover::before,
 .animation-button-outer:hover::after {
@@ -179,6 +193,14 @@ dt {
     transition: all .3s ease-out;
 }
 
+/* button (translucent version) */
+.animation-button-outer.animation-button-translucent:not(:hover) {
+    border-color: var(--border-color-primary-translucent);
+}
+.animation-button-outer.animation-button-translucent:not(:hover) .animation-button-inner::before,
+.animation-button-outer.animation-button-translucent:not(:hover) .animation-button-inner::after {
+    background-color: var(--border-color-primary-translucent);
+}
 
 
 /* page header */
@@ -483,7 +505,7 @@ dt {
     background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
 }
 .page-contact #pageMain .articleHeader {
-    background-image: url(https://picsum.photos/1980/1280);
+    background-image: url(../images/contact/background-img_1920_1280.jpg);
 }
 
 /* page title */
@@ -720,4 +742,103 @@ dt {
     .page-aboutUs #pageMain #aboutUsStore .section-eachStore:not(:last-child) {
         margin-right: min(5vw, 4em);
     }
+}
+
+
+/* contact page */
+/* ============================================ */
+
+/* basic design */
+/* -------------------------------------------- */
+
+/* required icon */
+.page-contact #pageMain .required::after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f621';
+	font-weight: 900;
+    font-size: .5em;
+    vertical-align: .2em;
+    color: var(--font-color-emphasis);
+}
+.page-contact #pageMain span.required::after {
+    margin: 0 .5em;
+}
+.page-contact #pageMain label.required::after {
+    margin: 0 0 0 .5em;
+}
+
+/* form */
+.page-contact #pageMain form {
+    display: flex;
+    flex-direction: column;
+    margin: 3em 0 4em;
+}
+.page-contact #pageMain form .grid-form {
+    display: grid;
+    grid-template-columns: 25% 65%;
+    gap: 0 10%;
+}
+.page-contact #pageMain form .grid-form .gridItem-label,
+.page-contact #pageMain form .grid-form .gridItem-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.page-contact #pageMain form .grid-form .gridItem-label {
+    border-bottom: solid 1px var(--border-color-secondary);
+}
+.page-contact #pageMain form .grid-form .gridItem-input {
+    padding: .7em 0 0;
+    border-bottom: solid 1px var(--border-color-primary);
+}
+.page-contact #pageMain form .grid-form .gridItem-input.select {
+    padding-bottom: .7em;
+}
+.page-contact #pageMain form .grid-form input,
+.page-contact #pageMain form .grid-form textarea,
+.page-contact #pageMain form .grid-form select {
+    width: 30em;
+    max-width: 100%;
+    padding: .3em .5em;
+    border: solid 1px var(--border-color-input);
+    background: var(--background-color-input);
+}
+.page-contact #pageMain form .grid-form textarea {
+    height: 10em;
+}
+.page-contact #pageMain form .grid-form .charactorCount {
+    align-self: flex-end;
+    font-size: .8em;
+}
+.page-contact #pageMain form .privacyPolicy {
+    text-align: center;
+    margin: 3em 0 8em;
+}
+.page-contact #pageMain form .privacyPolicy a {
+    font-style: oblique;
+    text-decoration: underline;
+    color: var(--font-color-link-secondary);
+}
+.page-contact #pageMain form #submitButton {
+    z-index: 10;
+    align-self: center;
+    padding: 1em 5em;
+}
+
+/* other elements */
+.page-contact #pageMain #contactForm p {
+    text-align: center;
+}
+.page-contact #pageMain #contactForm ul {
+    list-style: '※';
+    font-size: .9em;
+}
+
+/* input error */
+/* -------------------------------------------- */
+
+.page-contact #pageMain form.error .grid-form input:invalid,
+.page-contact #pageMain form.error .grid-form textarea:invalid,
+.page-contact #pageMain form.error .grid-form select:invalid {
+    background-color: var(--background-color-input-invalid);
 }
