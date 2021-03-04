@@ -63,8 +63,10 @@ a {
 a[target="_blank"]::after {
     font-family: "Font Awesome 5 Free";
     content: '\f35d';
+    font-size: .9em;
+    font-style: normal;
     font-weight: 900;
-    margin: 0 0 0 .1em;
+    margin: 0 0 0 .3em;
 }
 a,
 a *:not(img) {    
@@ -755,29 +757,56 @@ dt {
     margin: 0 0 0 .5em;
 }
 
-/* input */
-.page-contact #pageMain .inputWrap {
-    position: relative;
-    z-index: 10;
-    display: inline-block;
-    background: var(--background-color-input);
+/* form */
+.page-contact #pageMain form {
+    display: flex;
+    flex-direction: column;
 }
-.page-contact #pageMain input,
-.page-contact #pageMain textarea,
-.page-contact #pageMain select {
-    padding: .5em .5em .2em;
+.page-contact #pageMain form .grid-form {
+    display: grid;
+    grid-template-columns: 25% 65%;
+    gap: 0 10%;
+}
+.page-contact #pageMain form .grid-form .gridItem-label,
+.page-contact #pageMain form .grid-form .gridItem-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.page-contact #pageMain form .grid-form .gridItem-label {
+    border-bottom: solid 1px var(--border-color-secondary);
+}
+.page-contact #pageMain form .grid-form .gridItem-input {
+    padding: .7em 0 0;
+    border-bottom: solid 1px var(--border-color-primary);
+}
+.page-contact #pageMain form .grid-form .gridItem-input.select {
+    padding-bottom: .7em;
+}
+.page-contact #pageMain form .grid-form input,
+.page-contact #pageMain form .grid-form textarea,
+.page-contact #pageMain form .grid-form select {
+    width: 30em;
+    max-width: 100%;
+    padding: .3em .5em;
     border: solid 1px var(--border-color-input);
 }
-.page-contact #pageMain input {
-    padding-left: 5em;
+.page-contact #pageMain form .grid-form textarea {
+    height: 10em;
 }
-.page-contact #pageMain textarea {
-    padding-bottom: 1em;
-}
-.page-contact #pageMain .inputWrap .letterCounter {
-    position: absolute;
-    right: .5em;
-    bottom: .5em;
+.page-contact #pageMain form .grid-form .letterCounter {
+    align-self: flex-end;
     font-size: .8em;
-    color: var(--font-color-default-translucent);
+}
+.page-contact #pageMain form .privacyPolicy {
+    text-align: center;
+    margin: 4em 0;
+}
+.page-contact #pageMain form .privacyPolicy a {
+    font-style: oblique;
+    text-decoration: underline;
+    color: var(--font-color-link-secondary);
+}
+.page-contact #pageMain form #submitButton {
+    align-self: center;
 }
