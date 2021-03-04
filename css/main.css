@@ -761,6 +761,7 @@ dt {
 .page-contact #pageMain form {
     display: flex;
     flex-direction: column;
+    margin: 3em 0 4em;
 }
 .page-contact #pageMain form .grid-form {
     display: grid;
@@ -800,7 +801,7 @@ dt {
 }
 .page-contact #pageMain form .privacyPolicy {
     text-align: center;
-    margin: 4em 0;
+    margin: 3em 0 8em;
 }
 .page-contact #pageMain form .privacyPolicy a {
     font-style: oblique;
@@ -809,4 +810,14 @@ dt {
 }
 .page-contact #pageMain form #submitButton {
     align-self: center;
+    padding: 1em 5em;
+}
+
+/* other elements */
+.page-contact #pageMain #contactForm p {
+    text-align: center;
+}
+.page-contact #pageMain #contactForm ul {
+    list-style: '※';
+    font-size: .9em;
 }
