@@ -57,6 +57,12 @@ const operateForm = {
 
     addError: function(elem) {
         elem.addClass(ERROR);
+    },
+
+    changeCharacterCount: function(elem) {
+        const maxlength = elem.attr(`maxlength`);
+        const currentlength = elem.val().length;
+        elem.next().text(`${currentlength}/${maxlength}`);
     }
 };
 
@@ -85,5 +91,9 @@ $( () => {
         const parent = $(event.target).parent();
         operateForm.addError(parent);
         operateScroll.goToTop(parent);
+    });
+    // inputとtextareaにキー入力した時の処理
+    $(`.page-contact #pageMain form .inputArea`).on(`keyup keydown`, event => {
+        operateForm.changeCharacterCount($(event.target));
     });
 });

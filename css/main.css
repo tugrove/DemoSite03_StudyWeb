@@ -806,7 +806,7 @@ dt {
 .page-contact #pageMain form .grid-form textarea {
     height: 10em;
 }
-.page-contact #pageMain form .grid-form .letterCounter {
+.page-contact #pageMain form .grid-form .charactorCount {
     align-self: flex-end;
     font-size: .8em;
 }
