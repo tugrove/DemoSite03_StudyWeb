@@ -22,6 +22,7 @@
     --outline-color-focus: rgba(0, 0, 255, .7);
     /* border-color */
     --border-color-primary: rgb(0, 0, 0);
+    --border-color-primary-translucent: rgba(0, 0, 0, .2);
     --border-color-secondary: rgb(209, 58, 176);
     --border-color-input: rgb(0, 0, 0);
     /* shadow-color */
@@ -191,6 +192,14 @@ dt {
     transition: all .3s ease-out;
 }
 
+/* button (translucent version) */
+.animation-button-outer.animation-button-translucent:not(:hover) {
+    border-color: var(--border-color-primary-translucent);
+}
+.animation-button-outer.animation-button-translucent:not(:hover) .animation-button-inner::before,
+.animation-button-outer.animation-button-translucent:not(:hover) .animation-button-inner::after {
+    background-color: var(--border-color-primary-translucent);
+}
 
 
 /* page header */
@@ -809,6 +818,7 @@ dt {
     color: var(--font-color-link-secondary);
 }
 .page-contact #pageMain form #submitButton {
+    z-index: 10;
     align-self: center;
     padding: 1em 5em;
 }
