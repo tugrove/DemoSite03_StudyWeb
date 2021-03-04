@@ -33,7 +33,8 @@
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
     --background-color-pageFooter: rgb(255, 255, 255);
-    --background-color-input: rgb(255, 255, 255);
+    --background-color-input: rgba(255, 255, 255, .5);
+    --background-color-input-invalid: rgba(255, 255, 150, .8);
     --background-color-button-primary: rgba(255, 255, 255, .6);
     --background-color-button-active: rgba(101, 206, 238, 0.6);
     /* line-height */
@@ -800,6 +801,7 @@ dt {
     max-width: 100%;
     padding: .3em .5em;
     border: solid 1px var(--border-color-input);
+    background: var(--background-color-input);
 }
 .page-contact #pageMain form .grid-form textarea {
     height: 10em;
@@ -830,4 +832,13 @@ dt {
 .page-contact #pageMain #contactForm ul {
     list-style: '※';
     font-size: .9em;
+}
+
+/* input error */
+/* -------------------------------------------- */
+
+.page-contact #pageMain form.error .grid-form input:invalid,
+.page-contact #pageMain form.error .grid-form textarea:invalid,
+.page-contact #pageMain form.error .grid-form select:invalid {
+    background-color: var(--background-color-input-invalid);
 }

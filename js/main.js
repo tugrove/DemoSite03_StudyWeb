@@ -2,8 +2,20 @@
 
 // 定数
 const OPEN = `open`;
+const ERROR = `error`;
 
 /* オブジェクト定義 *****************************/
+
+// スクロール関連
+const operateScroll = {
+
+    // 移動先の要素がページヘッダで隠れないように、ページヘッダの高さだけ移動先をずらすメソッド
+    goToTop: function(elem) {
+        const height = $(`#pageHeader`).outerHeight();
+        const y = elem.offset().top;
+        scrollTo(0, y - height);
+    }
+};
 
 // サイドメニューの開閉
 const operateSideMenu = {
@@ -40,6 +52,15 @@ const operateSideMenu = {
     }
 };
 
+// form関連
+const operateForm = {
+
+    addError: function(elem) {
+        elem.addClass(ERROR);
+    }
+};
+
+
 /* HTMLの読み込み後の処理 ***********************/
 $( () => {
     // サイドメニューボタンを押した際の処理
@@ -58,6 +79,11 @@ $( () => {
             operateSideMenu.globalNav.toggleChildUl(parent);
         }
     });
+    /* contactページのform関連 **********************/
+    // 送信ボタン
+    $(`.page-contact #pageMain form #submitButton`).on(`click`, event => {
+        const parent = $(event.target).parent();
+        operateForm.addError(parent);
+        operateScroll.goToTop(parent);
+    });
 });
-
-
