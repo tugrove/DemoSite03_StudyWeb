@@ -178,7 +178,7 @@ dt {
     left: -1px;
 }
 .animation-button-outer:hover {
-    border: none;
+    border-color: rgba(0, 0, 0, 0);
 }
 .animation-button-outer:hover::before,
 .animation-button-outer:hover::after {
