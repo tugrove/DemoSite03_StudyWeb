@@ -802,6 +802,17 @@ dt {
     align-self: flex-end;
     font-size: .8em;
 }
+.page-contact #pageMain form .grid-form .selectWrap {
+    position: relative;
+    z-index: 10;
+    width: max-content;
+    max-width: 100%;
+}
+.page-contact #pageMain form .grid-form .selectWrap .fa-caret-down {
+    position: absolute;
+    right: .8em;
+    bottom: .8em;
+}
 .page-contact #pageMain form .privacyPolicy {
     text-align: center;
     margin: 3em 0 6em;
