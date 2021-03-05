@@ -536,7 +536,7 @@ dt {
 
 /* bicolor section */
 #pageMain .bicolorSection {
-    padding: 4em 0 6em;
+    padding: calc(var(--height-pageHeader) + 1em) 0 6em;
 }
 #pageMain .bicolorSection:nth-child(2n) {
     background: var(--background-color-secondary);
