@@ -43,7 +43,7 @@ const operateSideMenu = {
     globalNav: {
 
         toggleChildUl: function(elem) {
-            elem.classList.toggle(OPEN);
+            elem.toggleClass(OPEN);
         },
 
         closeAllChildUl: function() {
@@ -78,8 +78,8 @@ $( () => {
         operateSideMenu.close();
     });
     // サイドメニュー内のアコーディオンメニューを開閉する処理
-    $(`#sideMenu .globalNav .parent-ul .parent-li`).on(`click keydown`, `span`, event => {
-        const parent = event.delegateTarget;
+    $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event => {
+        const parent = $(event.target).parent();
         const keyCode = event.keyCode;
         if (!keyCode || keyCode === 13) {
             operateSideMenu.globalNav.toggleChildUl(parent);
