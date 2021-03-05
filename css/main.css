@@ -612,7 +612,6 @@ dt {
     .page-product #pageMain .bicolorSection .flex-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
         gap: max(2em, min(5vw, 4em));
     }
 
@@ -627,7 +626,6 @@ dt {
     /* productCategory1 */
     .page-product #pageMain #productCategory1 .flex-section {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto;
         gap: 2em;
     }
 }
@@ -672,7 +670,6 @@ dt {
 .page-aboutUs #pageMain #aboutUsOverview .companyInfo {
     display: grid;
     grid-template-columns: 25% 65%;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
     gap: 0 10%;
     margin: 2em 0 3em;
 }
