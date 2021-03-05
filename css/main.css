@@ -822,8 +822,13 @@ dt {
     text-align: center;
 }
 .page-contact #pageMain #contactForm ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 2em;
     list-style: '※';
     font-size: .9em;
+    text-align: center;
 }
 
 /* input error */
@@ -837,6 +842,14 @@ dt {
 
 /* for wide screen */
 /* -------------------------------------------- */
+
+@media screen and (min-width: 500px) {
+
+    /* other elements */
+    .page-contact #pageMain #contactForm ul {
+        margin-top: max(0em, min(calc((100vw - 500px) / 10), 2em));
+    }
+}
 
 @media screen and (min-width: 850px) {
 
