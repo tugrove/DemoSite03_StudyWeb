@@ -804,7 +804,7 @@ dt {
 }
 .page-contact #pageMain form .privacyPolicy {
     text-align: center;
-    margin: 3em 0 8em;
+    margin: 3em 0 6em;
 }
 .page-contact #pageMain form .privacyPolicy a {
     font-style: oblique;
@@ -814,7 +814,7 @@ dt {
 .page-contact #pageMain form #submitButton {
     z-index: 10;
     align-self: center;
-    padding: 1em 5em;
+    padding: max(1em, min(5% ,2em)) max(5em, min(20% ,13em));
 }
 
 /* other elements */
@@ -833,4 +833,24 @@ dt {
 .page-contact #pageMain form.error .grid-form textarea:invalid,
 .page-contact #pageMain form.error .grid-form select:invalid {
     background-color: var(--background-color-input-invalid);
+}
+
+/* for wide screen */
+/* -------------------------------------------- */
+
+@media screen and (min-width: 850px) {
+
+    /* form */
+    .page-contact #pageMain form .grid-form .gridItem-label {
+        justify-content: flex-end;
+        padding-bottom: .7em;
+    }
+    .page-contact #pageMain form .grid-form .gridItem-input {
+        flex-direction: row;
+        justify-content: left;
+        padding: 2em 0 .7em;
+    }
+    .page-contact #pageMain form .grid-form .charactorCount {
+        margin: 0 0 0 1em;
+    }
 }
