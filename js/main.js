@@ -8,23 +8,6 @@
 const OPEN = `open`;
 const ERROR = `error`;
 
-// 変数
-
-
-/* 関数定義 */
-/* ============================================ */
-
-// 文字列の結合の際に、HTTPヘッダインジェクションを避けるための関数
-// const foo = urijoin`https://sample.com/${hoge}/sample/${fuga}/`;のように用いる
-const urijoin = (strings, ...values) => {
-    const result = [];
-    const I = strings.length - 1;
-    for (let i = 0; i < I; i++) {
-        result.push(strings[i], encodeURIComponent(values[i]));
-    }
-    result.push(strings[I]);
-    return result.join(``);
-};
 
 /* オブジェクト定義 */
 /* ============================================ */
