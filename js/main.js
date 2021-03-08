@@ -5,8 +5,8 @@
 /* -------------------------------------------- */
 
 // CSSアニメーション制御クラス
-const OPEN = `open`;
-const ERROR = `error`;
+const OPEN = `open`;   // サイドメニューなどの開閉するメニューが開いていることを表すクラス
+const ERROR = `error`; // formなどで、何かエラーを含むことを表すクラス
 
 // YouTubeAPIのためのパラメタ
 const type = `video`;           // 動画検索を指定
@@ -39,7 +39,7 @@ const urijoin = (strings, ...values) => {
 /* オブジェクト定義 */
 /* ============================================ */
 
-// スクロール関連
+// 画面スクロールに関するオブジェクト
 const operateScroll = {
 
     // 移動先の要素がページヘッダで隠れないように、ページヘッダの高さだけ移動先をずらすメソッド
@@ -50,20 +50,24 @@ const operateScroll = {
     }
 };
 
-// サイドメニューの開閉
+// サイドメニューの開閉に関するオブジェクト
 const operateSideMenu = {
 
+    // サイドメニューを開くメソッド
+    // 同時にサイドメニュー内のアコーディオンメニューを全て閉じる
     open: function() {
         $(`#sideMenuButton`).addClass(OPEN);
         $(`#sideMenu`).addClass(OPEN);
         this.globalNav.closeAllChildUl();
     },
 
+    // サイドメニューを閉じるメソッド
     close: function() {
         $(`#sideMenuButton`).removeClass(OPEN);
         $(`#sideMenu`).removeClass(OPEN);
     },
 
+    // サイドメニューが開いていれば閉じ、閉じていれば開けるメソッド
     toggle: function() {
         const getClass = $(`#sideMenuButton`).attr(`class`);
         if (getClass === OPEN) {
@@ -73,12 +77,15 @@ const operateSideMenu = {
         }
     },
 
+    // サイドメニューのグローバルナビに関するオブジェクト
     globalNav: {
 
+        // 要素を引数とし、その要素のクラスOPENを切り替えるメソッド
         toggleChildUl: function(elem) {
             elem.toggleClass(OPEN);
         },
 
+        // サイドメニューのアコーディオンメニューを全て閉じるメソッド
         closeAllChildUl: function() {
             $(`#sideMenu .globalNav .parent-ul .parent-li`).removeClass(OPEN);
         }
@@ -111,12 +118,15 @@ const operateMovie = {
             dataType: `jsonp`
         }).done( data => {
             if (data.items) {
+                // 通信に成功し問題もなかった場合は、取得した動画を表示する
                 this.setMovies(data);
             } else {
+                // 通信は成功したがデータの取得に失敗した場合は、エラーメッセージを警告すると共に、得られたdataをコンソールに表示する
                 console.log(data);
                 alert('該当するデータが見つかりませんでした');
             }
         }).fail( data => {
+            // 通信に失敗した場合は、エラーメッセージを警告する
             alert(`通信に失敗しました`);
         });
     },
@@ -129,13 +139,15 @@ const operateMovie = {
     }
 };
 
-// form関連
+// formに関するオブジェクト
 const operateForm = {
 
+    // 要素を引数として、その要素にclass=ERRORを不要する
     addError: function(elem) {
         elem.addClass(ERROR);
     },
 
+    // input要素などを引数として、その要素に入力されている文字と最大入力数を取得し、その要素の次の兄弟要素のtextに代入する
     changeCharacterCount: function(elem) {
         const maxlength = elem.attr(`maxlength`);
         const currentlength = elem.val().length;
@@ -161,7 +173,7 @@ $( () => {
     $(`#sideMenu a`).on(`click`, () => {
         operateSideMenu.close();
     });
-    
+
     // サイドメニュー内のアコーディオンメニューを開閉する処理
     $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event => {
         const parent = $(event.target).parent();
