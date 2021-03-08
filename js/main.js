@@ -14,7 +14,6 @@ const part = `snippet`;         // 検索結果に全てのプロパティを含
 const videoEmbeddable = `true`; // Webページに埋め込み可能な動画を検索
 const videoSyndicated = `true`; // youtube.com以外で再生可能な動画のみ取得
 const maxResults = 3;           // 動画の最大取得数
-const key = `AIzaSyCuRRugd7JW05COyePp9e5_F5euXrIz4zs`; // APIキー
 
 // galleryページの動画を表示するiframeの親要素divにつけるタグの名前
 const IFRAMEWRAP = `YouTube`;
@@ -134,7 +133,7 @@ const operateMovie = {
     // movieCategoryのからYouTubeAPIの検索キーワードを取得し、URLを作成して、ajaxを行うメソッド
     selectMovie: function() {
         const q = $(`.page-gallery #pageMain #galleryMovie #movieCategory`).val();
-        const url = urijoin`https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&q=${q}&videoEmbeddable=${videoEmbeddable}&videoSyndicated=${videoSyndicated}&maxResults=${maxResults}&key=${key}`;
+        const url = urijoin`https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&q=${q}&videoEmbeddable=${videoEmbeddable}&videoSyndicated=${videoSyndicated}&maxResults=${maxResults}&key=${APIKEY}`;
         this.ajaxYouTube(url);
     }
 };
