@@ -4,6 +4,21 @@
 const OPEN = `open`;
 const ERROR = `error`;
 
+
+/* 関数定義 ***********************************/
+
+// 文字列の結合の際に、HTTPヘッダインジェクションを避けるための関数
+// const foo = urijoin`https://sample.com/${hoge}/sample/${fuga}/`;のように用いる
+const urijoin = (strings, ...values) => {
+    const result = [];
+    const I = strings.length - 1;
+    for (let i = 0; i < I; i++) {
+        result.push(strings[i], encodeURIComponent(values[i]));
+    }
+    result.push(strings[I]);
+    return result.join(``);
+};
+
 /* オブジェクト定義 *****************************/
 
 // スクロール関連
@@ -68,6 +83,7 @@ const operateForm = {
 
 
 /* HTMLの読み込み後の処理 ***********************/
+
 $( () => {
     // サイドメニューボタンを押した際の処理
     $(`#sideMenuButton`).on(`click`, () => {
