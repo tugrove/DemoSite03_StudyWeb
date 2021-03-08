@@ -500,6 +500,9 @@ dt {
 .page-aboutUs #pageMain .articleHeader {
     background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
 }
+.page-gallery #pageMain .articleHeader {
+    background-image: url(https://picsum.photos/1920/1280);
+}
 .page-contact #pageMain .articleHeader {
     background-image: url(../images/contact/background-img_1920_1280.jpg);
 }
