@@ -218,11 +218,20 @@ $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event =
 /* -------------------------------------------- */
 
 // スライドショーの左右ボタンの処理
-$(`.slideshow .slideshowLeftButton`).on(`click`, () => {
+$(`.slideshow .slideshow-leftButton`).on(`click`, () => {
     operateSlideshow.slideImg(-1);
 });
-$(`.slideshow .slideshowRightButton`).on(`click`, () => {
+$(`.slideshow .slideshow-rightButton`).on(`click`, () => {
     operateSlideshow.slideImg(1);
+});
+
+// スライドショーのサムネイルの処理
+$(`.slideshow .slideshow-thumbnail`).on(`click keydown`, event => {
+    const imgNo = parseInt($(event.target).attr(`data-imgNo`));
+    const keyCode = event.keyCode;
+    if (!keyCode || keyCode === 13) {
+        operateSlideshow.openImg(imgNo);
+    }
 });
 
 
