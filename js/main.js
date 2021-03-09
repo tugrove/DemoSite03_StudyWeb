@@ -133,7 +133,7 @@ const operateMovie = {
     // movieCategoryのからYouTubeAPIの検索キーワードを取得し、URLを作成して、ajaxを行うメソッド
     selectMovie: function() {
         const q = $(`.page-gallery #pageMain #galleryMovie #movieCategory`).val();
-        const url = urijoin`https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&q=${q}&videoEmbeddable=${videoEmbeddable}&videoSyndicated=${videoSyndicated}&maxResults=${maxResults}&key=${APIKEY}`;
+        const url = urijoin`https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&q=${q}&videoEmbeddable=${videoEmbeddable}&videoSyndicated=${videoSyndicated}&maxResults=${maxResults}&key=${API_KEY}`;
         this.ajaxYouTube(url);
     }
 };
