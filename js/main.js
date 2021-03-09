@@ -155,56 +155,53 @@ const operateForm = {
 };
 
 
-/* HTMLの読み込み終了後の処理 */
+/* 実行処理 */
 /* ============================================ */
 
-$( () => {
+/* 全体設定 */
+/* -------------------------------------------- */
 
-    /* 全体設定 */
-    /* -------------------------------------------- */
+// サイドメニューボタンを押した際の処理
+$(`#sideMenuButton`).on(`click`, () => {
+    operateSideMenu.toggle();
+});
 
-    // サイドメニューボタンを押した際の処理
-    $(`#sideMenuButton`).on(`click`, () => {
-        operateSideMenu.toggle();
-    });
+// サイドメニュー内のリンクを踏んだ際にサイドメニューを閉じる処理
+$(`#sideMenu a`).on(`click`, () => {
+    operateSideMenu.close();
+});
 
-    // サイドメニュー内のリンクを踏んだ際にサイドメニューを閉じる処理
-    $(`#sideMenu a`).on(`click`, () => {
-        operateSideMenu.close();
-    });
+// サイドメニュー内のアコーディオンメニューを開閉する処理
+$(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event => {
+    const parent = $(event.target).parent();
+    const keyCode = event.keyCode;
+    if (!keyCode || keyCode === 13) {
+        operateSideMenu.globalNav.toggleChildUl(parent);
+    }
+});
 
-    // サイドメニュー内のアコーディオンメニューを開閉する処理
-    $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event => {
-        const parent = $(event.target).parent();
-        const keyCode = event.keyCode;
-        if (!keyCode || keyCode === 13) {
-            operateSideMenu.globalNav.toggleChildUl(parent);
-        }
-    });
+/* galleryページ */
+/* -------------------------------------------- */
 
-    /* galleryページ */
-    /* -------------------------------------------- */
+// はじめにYouTubeAPIを取得する
+operateMovie.selectMovie();
 
-    // はじめにYouTubeAPIを取得する
+// #movieCategoryが変更されたらYouTubeAPIを取得しなおす
+$(`.page-gallery #pageMain #galleryMovie #movieCategory`).on(`change`, () => {
     operateMovie.selectMovie();
+});
 
-    // #movieCategoryが変更されたらYouTubeAPIを取得しなおす
-    $(`.page-gallery #pageMain #galleryMovie #movieCategory`).on(`change`, () => {
-        operateMovie.selectMovie();
-    });
+/* contactページ */
+/* -------------------------------------------- */
 
-    /* contactページ */
-    /* -------------------------------------------- */
+// 送信ボタン
+$(`.page-contact #pageMain form #submitButton`).on(`click`, event => {
+    const parent = $(event.target).parent();
+    operateForm.addError(parent);
+    operateScroll.goToTop(parent);
+});
 
-    // 送信ボタン
-    $(`.page-contact #pageMain form #submitButton`).on(`click`, event => {
-        const parent = $(event.target).parent();
-        operateForm.addError(parent);
-        operateScroll.goToTop(parent);
-    });
-
-    // inputとtextareaにキー入力した時の処理
-    $(`.page-contact #pageMain form .inputArea`).on(`keyup keydown`, event => {
-        operateForm.changeCharacterCount($(event.target));
-    });
+// inputとtextareaにキー入力した時の処理
+$(`.page-contact #pageMain form .inputArea`).on(`keyup keydown`, event => {
+    operateForm.changeCharacterCount($(event.target));
 });
