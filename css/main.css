@@ -33,8 +33,8 @@
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
     --background-color-pageFooter: rgb(255, 255, 255);
-    --background-color-input: rgba(255, 255, 255, .5);
-    --background-color-input-invalid: rgba(255, 255, 150, .8);
+    --background-color-input: rgb(255, 255, 255);
+    --background-color-input-invalid: rgb(255, 255, 200);
     --background-color-button-primary: rgba(255, 255, 255, .6);
     --background-color-button-secondary: rgba(200, 200, 200, .5);
     --background-color-button-active: rgba(101, 206, 238, 0.6);
@@ -98,6 +98,20 @@ img {
 /* table */
 th {
     font-weight: inherit;
+}
+
+/* input, textarea, select */
+input,
+textarea,
+select {
+    padding: .3em .5em;
+    border: solid 1px var(--border-color-input);
+    background: var(--background-color-input);
+}
+form.error input:invalid,
+form.error textarea:invalid,
+form.error select:invalid {
+    background-color: var(--background-color-input-invalid);
 }
 
 /* dl */
@@ -792,6 +806,19 @@ dt {
     background: var(--background-color-button-secondary);
 }
 
+/* movie */
+.page-gallery #pageMain .movieCategoryWrap {
+    position: relative;
+    z-index: 10;
+}
+.page-gallery #pageMain .movieCategoryWrap #movieCategory {
+    width: 6em;
+}
+.page-gallery #pageMain .movieCategoryWrap .fa-caret-down {
+    position: absolute;
+    right: .5em;
+    bottom: .1em;
+}
 
 /* contact page */
 /* ============================================ */
@@ -847,9 +874,6 @@ dt {
 .page-contact #pageMain form .grid-form select {
     width: 30em;
     max-width: 100%;
-    padding: .3em .5em;
-    border: solid 1px var(--border-color-input);
-    background: var(--background-color-input);
 }
 .page-contact #pageMain form .grid-form textarea {
     height: 10em;
@@ -896,15 +920,6 @@ dt {
     list-style: '※';
     font-size: .9em;
     text-align: center;
-}
-
-/* input error */
-/* -------------------------------------------- */
-
-.page-contact #pageMain form.error .grid-form input:invalid,
-.page-contact #pageMain form.error .grid-form textarea:invalid,
-.page-contact #pageMain form.error .grid-form select:invalid {
-    background-color: var(--background-color-input-invalid);
 }
 
 /* for wide screen */
