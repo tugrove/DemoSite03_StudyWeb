@@ -812,7 +812,7 @@ dt {
     z-index: 10;
 }
 .page-gallery #pageMain .movieCategoryWrap #movieCategory {
-    width: 6em;
+    width: max-content;
 }
 .page-gallery #pageMain .movieCategoryWrap .fa-caret-down {
     position: absolute;

@@ -164,11 +164,12 @@ const operateMovie = {
         });
     },
 
-    // movieCategoryのからYouTubeAPIの検索キーワードを取得し、URLを作成して、ajaxを行うメソッド
-    selectMovie: function() {
-        const q = $(`#movieCategory`).val();
-        const url = urijoin`https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&q=${q}&videoEmbeddable=${videoEmbeddable}&videoSyndicated=${videoSyndicated}&maxResults=${maxResults}&key=${API_KEY}`;
-        this.ajaxYouTube(url);
+    // 検索キーワードを引数とし、それが空でなければajaxを行う
+    selectMovie: function(q) {
+        if (q) {
+            const url = urijoin`https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&q=${q}&videoEmbeddable=${videoEmbeddable}&videoSyndicated=${videoSyndicated}&maxResults=${maxResults}&key=${API_KEY}`;
+            this.ajaxYouTube(url);
+        }
     }
 };
 
@@ -238,12 +239,10 @@ $(`.slideshow .slideshow-thumbnail`).on(`click keydown`, event => {
 /* galleryページ */
 /* -------------------------------------------- */
 
-// はじめにYouTubeAPIを取得する
-operateMovie.selectMovie();
-
-// #movieCategoryが変更されたらYouTubeAPIを取得しなおす
-$(`#movieCategory`).on(`change`, () => {
-    operateMovie.selectMovie();
+// #movieCategoryが変更されたらYouTubeAPIを取得する
+$(`#movieCategory`).on(`change`, event => {
+    const value = $(event.target).val();
+    operateMovie.selectMovie(value);
 });
 
 /* contactページ */
