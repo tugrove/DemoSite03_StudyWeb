@@ -36,6 +36,7 @@
     --background-color-input: rgba(255, 255, 255, .5);
     --background-color-input-invalid: rgba(255, 255, 150, .8);
     --background-color-button-primary: rgba(255, 255, 255, .6);
+    --background-color-button-secondary: rgba(200, 200, 200, .5);
     --background-color-button-active: rgba(101, 206, 238, 0.6);
     /* line-height */
     --line-height-default: 1.8;
@@ -62,7 +63,7 @@ body {
 a {
     color: var(--font-color-link-primary);
 }
-a[target="_blank"]::after {
+a:not[target="_blank"]::after {
     font-family: "Font Awesome 5 Free";
     content: '\f35d';
     font-size: .9em;
@@ -747,11 +748,16 @@ dt {
 /* -------------------------------------------- */
 
 /* slideshow */
+.page-gallery #pageMain .slideshow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}
 .page-gallery #pageMain .slideshow .slideshow-imgWrap {
     position: relative;
     z-index: 10;
     width: 100%;
-    padding: calc(100% / 600 * 400) 0 0;
+    padding: calc(100% / 1280 * 850) 0 0; /* calc(100% / 画像の幅 * 画像の高さ) */
 }
 .page-gallery #pageMain .slideshow .slideshow-imgWrap .slideshow-img {
     position: absolute;
@@ -767,6 +773,23 @@ dt {
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
+}
+.page-gallery #pageMain .slideshow .slideshow-leftButton,
+.page-gallery #pageMain .slideshow .slideshow-rightButton {
+    display: none;
+    max-width: 100%;
+    font-size: 3em;
+    text-align: center;
+    border: solid 1px var(--border-color-primary-translucent);
+    background: var(--background-color-button-secondary);
+}
+.page-gallery #pageMain .slideshow .slideshow-thumbnailWrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .5em;
+    padding: .5em;
+    border: solid 1px var(--border-color-primary-translucent);
+    background: var(--background-color-button-secondary);
 }
 
 
