@@ -8,8 +8,9 @@
 const OPEN = `open`;   // サイドメニューなどの開閉するメニューが開いていることを表すクラス
 const ERROR = `error`; // formなどで、何かエラーを含むことを表すクラス
 
-// indexページのarticleHeader背景の切り替え間隔[ms]
-const INTERVAL = 4000;
+// indexページのarticleHeader背景画像切り替えのパラメタ
+const INTERVAL_IMG = 7000; // 背景画像切り替えの間隔[ms]
+const N_IMG = 5;           // 背景画像の枚数
 
 // YouTubeAPIのためのパラメタ
 const type = `video`;           // 動画検索を指定
@@ -250,8 +251,8 @@ $(window).on(`scroll`, () => {
 
 // articleHeaderの背景を一定間隔で切り替える処理
 const timer = setInterval( () => {
-    operateIndex.countUpAttr($(`.page-index .articleHeaderImg`), `data-imgNo`, 4);
-}, INTERVAL);
+    operateIndex.countUpAttr($(`.page-index .articleHeaderImg`), `data-imgNo`, N_IMG);
+}, INTERVAL_IMG);
 
 /* スライドショー */
 /* -------------------------------------------- */
