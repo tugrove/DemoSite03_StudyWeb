@@ -83,6 +83,9 @@ a:hover * {
 *:focus-visible {
     outline: auto var(--outline-color-focus);
 }
+*[tabindex="0"]:focus:not(:focus-visible) {
+    outline: none;
+}
 
 /* img */
 img {
@@ -370,9 +373,6 @@ dt {
 #sideMenu .globalNav .parent-ul .parent-li span:hover {
     cursor: pointer;
     opacity: var(--opacity-hover);
-}
-#sideMenu .globalNav .parent-ul .parent-li span:focus:not(:focus-visible) {
-    outline: none;
 }
 #sideMenu .globalNav .parent-ul .parent-li span::before {
     font-family: "Font Awesome 5 Free";
@@ -737,6 +737,36 @@ dt {
     .page-aboutUs #pageMain #aboutUsStore .section-eachStore:not(:last-child) {
         margin-right: min(5vw, 4em);
     }
+}
+
+
+/* gallery page */
+/* ============================================ */
+
+/* basic design */
+/* -------------------------------------------- */
+
+/* slideshow */
+.page-gallery #pageMain .slideshow .slideshow-imgWrap {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: calc(100% / 600 * 400) 0 0;
+}
+.page-gallery #pageMain .slideshow .slideshow-imgWrap .slideshow-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s ease, visibility 0s ease .5s;
+}
+.page-gallery #pageMain .slideshow .slideshow-imgWrap .slideshow-img.open {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
 }
 
 

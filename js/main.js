@@ -22,6 +22,16 @@ const IFRAMEWRAP = `YouTube`;
 /* 関数定義 */
 /* ============================================ */
 
+// 剰余演算をする関数
+// ただの%と異なり、負の値を返さない
+const mod = (i, j) => {
+    let result = i % j;
+    if (result < 0) {
+        result += Math.abs(j);
+    }
+    return result;
+};
+
 // 文字列の結合の際に、HTTPヘッダインジェクションを避けるための関数
 // const foo = urijoin`https://sample.com/${hoge}/sample/${fuga}/`;のように用いる
 const urijoin = (strings, ...values) => {
@@ -91,6 +101,30 @@ const operateSideMenu = {
     }
 };
 
+// スライドショーに関するオブジェクト
+const operateSlideshow = {
+
+    // 画像番号を引数とし、スライドショーの画像を全て非表示にしてから、与えられた画像番号の画像だけ表示するメソッド
+    openImg: function(imgNo) {
+        this.closeImgAll();
+        $(`.slideshow`).attr(`data-imgNo`, `${imgNo}`);
+        $($(`.slideshow .slideshow-img`)[imgNo]).addClass(OPEN);
+    },
+
+    // スライドショーの全ての画像を非表示にするメソッド
+    closeImgAll: function() {
+        $(`.slideshow .slideshow-img`).removeClass(OPEN);
+    },
+
+    // 整数を引数とし、スライドショーの画像番号を引数分だけ進めるメソッド
+    slideImg: function(n) {
+        const N_img = $(`.slideshow .slideshow-img`).length;
+        let imgNo = parseInt($(`.slideshow`).attr(`data-imgNo`));
+        imgNo = mod(imgNo + n, N_img);
+        this.openImg(imgNo);
+    },
+};
+
 // galleryページのYouTubeAPIに関するオブジェクト
 const operateMovie = {
 
@@ -105,7 +139,7 @@ const operateMovie = {
         }
         result.join("");
         // #YouTubeMoviesの中身を変更する
-        $(`.page-gallery #pageMain #galleryMovie #YouTubeMovies`).html(result);
+        $(`.page-gallery #pageMain #YouTubeMovies`).html(result);
     },
 
     // YouTubeAPIによって動画情報を取得するメソッド
@@ -132,7 +166,7 @@ const operateMovie = {
 
     // movieCategoryのからYouTubeAPIの検索キーワードを取得し、URLを作成して、ajaxを行うメソッド
     selectMovie: function() {
-        const q = $(`.page-gallery #pageMain #galleryMovie #movieCategory`).val();
+        const q = $(`.page-gallery #pageMain #movieCategory`).val();
         const url = urijoin`https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&q=${q}&videoEmbeddable=${videoEmbeddable}&videoSyndicated=${videoSyndicated}&maxResults=${maxResults}&key=${API_KEY}`;
         this.ajaxYouTube(url);
     }
@@ -180,6 +214,27 @@ $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event =
     }
 });
 
+/* スライドショー */
+/* -------------------------------------------- */
+
+// スライドショーの左右ボタンの処理
+$(`.slideshow .slideshow-leftButton`).on(`click`, () => {
+    operateSlideshow.slideImg(-1);
+});
+$(`.slideshow .slideshow-rightButton`).on(`click`, () => {
+    operateSlideshow.slideImg(1);
+});
+
+// スライドショーのサムネイルの処理
+$(`.slideshow .slideshow-thumbnail`).on(`click keydown`, event => {
+    const imgNo = parseInt($(event.target).attr(`data-imgNo`));
+    const keyCode = event.keyCode;
+    if (!keyCode || keyCode === 13) {
+        operateSlideshow.openImg(imgNo);
+    }
+});
+
+
 /* galleryページ */
 /* -------------------------------------------- */
 
@@ -188,6 +243,21 @@ operateMovie.selectMovie();
 
 // #movieCategoryが変更されたらYouTubeAPIを取得しなおす
 $(`.page-gallery #pageMain #galleryMovie #movieCategory`).on(`change`, () => {
+    operateMovie.selectMovie();
+});
+
+/* contactページ */
+/* -------------------------------------------- */
+
+// 送信ボタン
+$(`.page-contact #pageMain form #submitButton`).on(`click`, event => {
+    const parent = $(event.target).parent();
+    operateForm.addError(parent);
+    operateScroll.goToTop(parent);
+});
+
+// #movieCategoryが変更されたらYouTubeAPIを取得しなおす
+$(`.page-gallery #pageMain #movieCategory`).on(`change`, () => {
     operateMovie.selectMovie();
 });
 

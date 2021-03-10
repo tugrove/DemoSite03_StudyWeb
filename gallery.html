@@ -112,12 +112,24 @@
                         <div class="contentsMaxWidth sidePadding">
                             <h2 class="bicolorSectionHeading">画像</h2>
                             <div class="flex-section">
-                                <div id="slideshow"></div>
-                                <img src="https://picsum.photos/id/237/600/400" alt="">
-                                <img src="https://picsum.photos/id/238/600/400" alt="">
-                                <img src="https://picsum.photos/id/239/600/400" alt="">
-                                <img src="https://picsum.photos/id/240/600/400" alt="">
-                                <img src="https://picsum.photos/id/241/600/400" alt="">
+                                <div class="slideshow" data-imgNo="0">
+                                    <div class="slideshow-imgWrap">
+                                        <img src="https://picsum.photos/id/237/600/400" class="slideshow-img open" data-imgNo="0" width="600" heigth="400" alt="">
+                                        <img src="https://picsum.photos/id/238/600/400" class="slideshow-img" data-imgNo="1" width="600" heigth="400" alt="">
+                                        <img src="https://picsum.photos/id/239/600/400" class="slideshow-img" data-imgNo="2" width="600" heigth="400" alt="">
+                                        <img src="https://picsum.photos/id/240/600/400" class="slideshow-img" data-imgNo="3" width="600" heigth="400" alt="">
+                                        <img src="https://picsum.photos/id/242/600/400" class="slideshow-img" data-imgNo="4" width="600" heigth="400" alt="">
+                                    </div> <!-- /.slideshow-imgWrap -->
+                                    <button class="slideshow-leftButton">&lt;</button>
+                                    <button class="slideshow-rightButton">&gt;</button>
+                                    <div class="slideshow-thumbnailWrap">
+                                        <img src="https://picsum.photos/id/237/600/400" class="slideshow-thumbnail" data-imgNo="0" width="120" heigth="80" alt="" tabindex="0">
+                                        <img src="https://picsum.photos/id/238/600/400" class="slideshow-thumbnail" data-imgNo="1" width="120" heigth="80" alt="" tabindex="0">
+                                        <img src="https://picsum.photos/id/239/600/400" class="slideshow-thumbnail" data-imgNo="2" width="120" heigth="80" alt="" tabindex="0">
+                                        <img src="https://picsum.photos/id/240/600/400" class="slideshow-thumbnail" data-imgNo="3" width="120" heigth="80" alt="" tabindex="0">
+                                        <img src="https://picsum.photos/id/242/600/400" class="slideshow-thumbnail" data-imgNo="4" width="120" heigth="80" alt="" tabindex="0">
+                                    </div> <!-- /.slideshow-thumbnailWrap -->
+                                </div> <!-- /.slideshow -->
                             </div> <!-- /.flex-section -->
                         </div> <!-- /.contentsMaxWidth /.sidePadding -->
                     </section> <!-- /#galleryPicture -->
