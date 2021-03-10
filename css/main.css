@@ -509,16 +509,20 @@ dt {
     justify-content: center;
     align-items: center;
 }
-.page-product #pageMain .articleHeader {
-    background-image: url(../images/product/background-img_1920_1315.jpg);
+.page-product #pageMain .articleHeader,
+.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="0"] {
+    background-image: url(../images/product/background-img_1920_1280.jpg);
 }
-.page-aboutUs #pageMain .articleHeader {
+.page-aboutUs #pageMain .articleHeader,
+.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="1"] {
     background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
 }
-.page-gallery #pageMain .articleHeader {
-    background-image: url(../images/gallery/background-img_1920_973.jpg);
+.page-gallery #pageMain .articleHeader,
+.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="2"] {
+    background-image: url(../images/gallery/background-img_1920_1280.jpg);
 }
-.page-contact #pageMain .articleHeader {
+.page-contact #pageMain .articleHeader,
+.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="3"] {
     background-image: url(../images/contact/background-img_1920_1280.jpg);
 }
 
@@ -590,18 +594,7 @@ dt {
     width: 100%;
     height: 100%;
     background: center center / cover no-repeat;
-}
-.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="0"] {
-    background-image: url(../images/product/background-img_1920_1315.jpg);
-}
-.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="1"] {
-    background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
-}
-.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="2"] {
-    background-image: url(../images/gallery/background-img_1920_973.jpg);
-}
-.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="3"] {
-    background-image: url(../images/contact/background-img_1920_1280.jpg);
+    transition: background-image 1s ease-out;
 }
 
 /* article main */

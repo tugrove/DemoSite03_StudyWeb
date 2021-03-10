@@ -8,6 +8,9 @@
 const OPEN = `open`;   // サイドメニューなどの開閉するメニューが開いていることを表すクラス
 const ERROR = `error`; // formなどで、何かエラーを含むことを表すクラス
 
+// indexページのarticleHeader背景の切り替え間隔[ms]
+const INTERVAL = 4000;
+
 // YouTubeAPIのためのパラメタ
 const type = `video`;           // 動画検索を指定
 const part = `snippet`;         // 検索結果に全てのプロパティを含む
@@ -98,6 +101,17 @@ const operateSideMenu = {
         closeAllChildUl: function() {
             $(`#sideMenu .globalNav .parent-ul .parent-li`).removeClass(OPEN);
         }
+    }
+};
+
+// indexページに関わるオブジェクト
+const operateIndex = {
+
+    // 要素、値に整数の属性、属性値の数を引数として、その要素の属性値を1増やすメソッド
+    countUpAttr: function(elem, attr, N_attr) {
+        let i = parseInt(elem.attr(attr));
+        i = mod(i + 1, N_attr);
+        elem.attr(attr, i);
     }
 };
 
@@ -214,6 +228,12 @@ $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event =
         operateSideMenu.globalNav.toggleChildUl(parent);
     }
 });
+
+/* indexページのarticleHeader */
+/* -------------------------------------------- */
+const timer = setInterval( () => {
+    operateIndex.countUpAttr($(`.page-index .articleHeaderImg`), `data-imgNo`, 4);
+}, INTERVAL);
 
 /* スライドショー */
 /* -------------------------------------------- */
