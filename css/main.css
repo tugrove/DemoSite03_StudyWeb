@@ -516,7 +516,7 @@ dt {
     background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
 }
 .page-gallery #pageMain .articleHeader {
-    background-image: url(https://picsum.photos/1920/1280);
+    background-image: url(../images/gallery/background-img_1920_973.jpg);
 }
 .page-contact #pageMain .articleHeader {
     background-image: url(../images/contact/background-img_1920_1280.jpg);
@@ -568,6 +568,57 @@ dt {
     display: flex;
     flex-direction: column;
 }
+
+/* product page */
+/* ============================================ */
+
+/* basic design */
+/* -------------------------------------------- */
+
+/* article header */
+.page-index #pageMain .articleHeader {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 40%;
+    gap: 5%;
+    height: calc(100vh - var(--height-pageHeader));
+    max-height: none;
+    /* background: linear-gradient(180deg, var(--background-color-primary) 0%, var(--background-color-primary) 30%, var(--background-color-secondary) 30%, var(--background-color-secondary) 100%); */
+    background: var(--background-color-secondary);
+}
+.page-index #pageMain .articleHeader .articleHeaderImg {
+    width: 100%;
+    height: 100%;
+    background: center center / cover no-repeat;
+}
+.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="0"] {
+    background-image: url(../images/product/background-img_1920_1315.jpg);
+}
+.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="1"] {
+    background-image: url(../images/aboutUs/background-img_1920_1280.jpg);
+}
+.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="2"] {
+    background-image: url(../images/gallery/background-img_1920_973.jpg);
+}
+.page-index #pageMain .articleHeader .articleHeaderImg[data-imgNo="3"] {
+    background-image: url(../images/contact/background-img_1920_1280.jpg);
+}
+
+/* article main */
+.page-index #pageMain .articleHeaderMain {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, var(--background-color-primary) 0%, var(--background-color-primary) 50%, var(--background-color-secondary) 50%, var(--background-color-secondary) 100%);
+}
+.page-index #pageMain .pageTitle {
+    width: 50%;
+    min-width: 15rem;
+    max-width: 25rem;
+}
+
 
 /* product page */
 /* ============================================ */
