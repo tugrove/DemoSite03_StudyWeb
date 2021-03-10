@@ -14,16 +14,17 @@
     /* font-color */
     --font-color-default: rgb(0, 0, 0);
     --font-color-default-translucent: rgba(0, 0, 0, .3);
+    --font-color-white: rgb(255, 255, 255);
     --font-color-emphasis: rgb(209, 58, 176);
     --font-color-link-primary: rgb(0, 0, 0);
     --font-color-link-secondary: rgb(100, 100, 100);
-    --font-color-pageTitle: rgb(255, 255, 255);
     /* outline-color */
     --outline-color-focus: rgba(0, 0, 255, .7);
     /* border-color */
     --border-color-primary: rgb(0, 0, 0);
     --border-color-primary-translucent: rgba(0, 0, 0, .2);
     --border-color-secondary: rgb(209, 58, 176);
+    --border-color-tertiary: rgb(255, 255, 255);
     --border-color-input: rgb(0, 0, 0);
     /* shadow-color */
     --shadow-color-dark: rgba(0, 0, 0, .7);
@@ -35,9 +36,9 @@
     --background-color-pageFooter: rgb(255, 255, 255);
     --background-color-input: rgb(255, 255, 255);
     --background-color-input-invalid: rgb(255, 255, 200);
-    --background-color-button-primary: rgba(255, 255, 255, .6);
+    --background-color-button-primary: rgba(255, 255, 255, 0);
     --background-color-button-secondary: rgba(200, 200, 200, .5);
-    --background-color-button-active: rgba(101, 206, 238, 0.6);
+    --background-color-button-active: rgba(101, 206, 238, .6);
     /* line-height */
     --line-height-default: 1.8;
     /* size, length, width, or height */
@@ -211,13 +212,24 @@ dt {
     transition: all .3s ease-out;
 }
 
-/* button (translucent version) */
+/* button (translucent border version) */
 .animation-button-outer.animation-button-translucent:not(:hover) {
     border-color: var(--border-color-primary-translucent);
 }
 .animation-button-outer.animation-button-translucent:not(:hover) .animation-button-inner::before,
 .animation-button-outer.animation-button-translucent:not(:hover) .animation-button-inner::after {
     background-color: var(--border-color-primary-translucent);
+}
+
+/* button (white border version) */
+.animation-button-outer.animation-button-white:not(:hover) {
+    border-color: var(--border-color-tertiary);
+}
+.animation-button-outer.animation-button-white::before,
+.animation-button-outer.animation-button-white::after,
+.animation-button-outer.animation-button-white .animation-button-inner::before,
+.animation-button-outer.animation-button-white .animation-button-inner::after {
+    background-color: var(--border-color-tertiary);
 }
 
 
@@ -544,7 +556,7 @@ dt {
 /* page title */
 #pageMain .pageTitle {
     font-size: max(1.5rem, min(4vw, 3rem));
-    color: var(--font-color-pageTitle);
+    color: var(--font-color-white);
     text-shadow: 1px 1px var(--shadow-color-dark);
 }
 
@@ -627,7 +639,7 @@ dt {
     background-image: url(../images/index/bakcgound-img-04_1920_1280.jpg);
 }
 
-/* article main */
+/* article header main */
 .page-index #pageMain .articleHeaderMain {
     width: 100%;
     height: 100%;
@@ -642,6 +654,23 @@ dt {
     max-width: 25rem;
 }
 
+/* button */
+.page-index #pageMain .animation-button-outer {
+    z-index: 10;
+    text-align: center;
+    padding: max(1em, min(5% ,2em)) max(1em, min(20% ,10em));
+    margin: 4em auto 0;
+}
+
+/* index about us */
+.page-index #pageMain #indexAboutUs {
+    background: rgb(50, 50, 50) url(../images/index/bakcgound-img-aboutUs_1920_1280.jpg) center center / cover no-repeat;
+    background-blend-mode: overlay;
+    color: var(--font-color-white);
+    text-shadow: 1px 1px var(--shadow-color-dark);
+}
+.page-index #pageMain #idexAboutUs.open {
+}
 
 /* product page */
 /* ============================================ */
