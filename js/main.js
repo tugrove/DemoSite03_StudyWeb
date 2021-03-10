@@ -57,8 +57,19 @@ const operateScroll = {
     // 移動先の要素がページヘッダで隠れないように、ページヘッダの高さだけ移動先をずらすメソッド
     goToTop: function(elem) {
         const height = $(`#pageHeader`).outerHeight();
-        const y = elem.offset().top;
-        scrollTo(0, y - height);
+        const top = elem.offset().top;
+        scrollTo(0, top - height);
+    },
+
+    // ページタイトルが隠れるくらい画面スクロールしたら、ページヘッダの企業ロゴを表示するメソッド
+    toggleLogo: function() {
+        const height = $(`#pageHeader`).outerHeight();
+        const top = $(`.pageTitle`).offset().top;
+        if ($(window).scrollTop() > top - height) {
+            $(`#pageHeader .companyLogo`).addClass(OPEN);
+        } else {
+            $(`#pageHeader .companyLogo`).removeClass(OPEN);
+        }
     }
 };
 
@@ -229,8 +240,15 @@ $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event =
     }
 });
 
-/* indexページのarticleHeader */
+/* indexページ */
 /* -------------------------------------------- */
+
+// 画面スクロールでページヘッダのロゴの表示を切り替える処理
+$(window).on(`scroll`, () => {
+    operateScroll.toggleLogo();
+});
+
+// articleHeaderの背景を一定間隔で切り替える処理
 const timer = setInterval( () => {
     operateIndex.countUpAttr($(`.page-index .articleHeaderImg`), `data-imgNo`, 4);
 }, INTERVAL);
