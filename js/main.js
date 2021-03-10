@@ -13,7 +13,7 @@ const type = `video`;           // 動画検索を指定
 const part = `snippet`;         // 検索結果に全てのプロパティを含む
 const videoEmbeddable = `true`; // Webページに埋め込み可能な動画を検索
 const videoSyndicated = `true`; // youtube.com以外で再生可能な動画のみ取得
-const maxResults = 3;           // 動画の最大取得数
+const maxResults = 1;           // 動画の最大取得数
 
 // galleryページの動画を表示するiframeの親要素divにつけるタグの名前
 const IFRAMEWRAP = `YouTube`;
@@ -139,7 +139,7 @@ const operateMovie = {
         }
         result.join("");
         // #YouTubeMoviesの中身を変更する
-        $(`.page-gallery #pageMain #YouTubeMovies`).html(result);
+        $(`#YouTubeMovies`).html(result);
     },
 
     // YouTubeAPIによって動画情報を取得するメソッド
@@ -166,7 +166,7 @@ const operateMovie = {
 
     // movieCategoryのからYouTubeAPIの検索キーワードを取得し、URLを作成して、ajaxを行うメソッド
     selectMovie: function() {
-        const q = $(`.page-gallery #pageMain #movieCategory`).val();
+        const q = $(`#movieCategory`).val();
         const url = urijoin`https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&q=${q}&videoEmbeddable=${videoEmbeddable}&videoSyndicated=${videoSyndicated}&maxResults=${maxResults}&key=${API_KEY}`;
         this.ajaxYouTube(url);
     }
@@ -242,22 +242,7 @@ $(`.slideshow .slideshow-thumbnail`).on(`click keydown`, event => {
 operateMovie.selectMovie();
 
 // #movieCategoryが変更されたらYouTubeAPIを取得しなおす
-$(`.page-gallery #pageMain #galleryMovie #movieCategory`).on(`change`, () => {
-    operateMovie.selectMovie();
-});
-
-/* contactページ */
-/* -------------------------------------------- */
-
-// 送信ボタン
-$(`.page-contact #pageMain form #submitButton`).on(`click`, event => {
-    const parent = $(event.target).parent();
-    operateForm.addError(parent);
-    operateScroll.goToTop(parent);
-});
-
-// #movieCategoryが変更されたらYouTubeAPIを取得しなおす
-$(`.page-gallery #pageMain #movieCategory`).on(`change`, () => {
+$(`#movieCategory`).on(`change`, () => {
     operateMovie.selectMovie();
 });
 
