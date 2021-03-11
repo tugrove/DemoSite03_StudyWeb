@@ -31,6 +31,7 @@
     /* background-color */
     --background-color-primary: rgb(255, 255, 255);
     --background-color-secondary: rgb(248, 234, 234);
+    --background-color-tertiary: rgb(139, 148, 163);
     --background-color-pageHeader: rgb(255, 255, 255);
     --background-color-sideMenu: rgb(255, 245, 245);
     --background-color-pageFooter: rgb(255, 255, 255);
@@ -668,7 +669,7 @@ dt {
     z-index: 10;
     overflow: hidden;
     color: var(--font-color-white);
-    text-shadow: 1px 1px var(--shadow-color-dark);
+    /* text-shadow: 1px 1px var(--shadow-color-dark); */
 }
 .page-index #pageMain #indexAboutUs .indexAboutUs-inner {
     position: relative;
@@ -687,6 +688,24 @@ dt {
 }
 .page-index #pageMain #indexAboutUs.open::after {
     transform: scale(1.1);
+}
+
+/* index gallery */
+.page-index #pageMain #indexGallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0;
+}
+.page-index #pageMain #indexGallery .indexGalleryBackgroundImg {
+    width: 100%;
+    padding: calc(100% / 1280 * 853) 0 0; /* calc(100% / 画像の幅 * 画像の高さ) */
+    background: url(../images/index/background-img-gallery_1280_853.jpg) center center / cover no-repeat;
+}
+.page-index #pageMain #indexGallery .indexGalleryMain {
+    padding: calc(var(--height-pageHeader) + 1em) 0 6em;
+    color: var(--font-color-white);
+    /* text-shadow: 1px 1px var(--shadow-color-dark); */
+    background: var(--background-color-tertiary);
 }
 
 /* product page */
