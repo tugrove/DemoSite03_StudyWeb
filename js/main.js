@@ -254,6 +254,14 @@ const timer = setInterval( () => {
     operateIndex.countUpAttr($(`.page-index .articleHeaderImg`), `data-imgNo`, N_IMG);
 }, INTERVAL_IMG);
 
+// #indexAboutUsのボタンにマウスオーバーした際の処理
+$(`#indexAboutUs button`).on(`mouseover`, () => {
+    $(`#indexAboutUs`).addClass(OPEN);
+});
+$(`#indexAboutUs button`).on(`mouseout`, () => {
+    $(`#indexAboutUs`).removeClass(OPEN);
+});
+
 /* スライドショー */
 /* -------------------------------------------- */
 

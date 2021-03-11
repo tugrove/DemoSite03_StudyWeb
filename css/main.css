@@ -656,7 +656,7 @@ dt {
 
 /* button */
 .page-index #pageMain .animation-button-outer {
-    z-index: 10;
+    z-index: 11;
     text-align: center;
     padding: max(1em, min(5% ,2em)) max(1em, min(20% ,10em));
     margin: 4em auto 0;
@@ -664,12 +664,29 @@ dt {
 
 /* index about us */
 .page-index #pageMain #indexAboutUs {
-    background: rgb(50, 50, 50) url(../images/index/bakcgound-img-aboutUs_1920_1280.jpg) center center / cover no-repeat;
-    background-blend-mode: overlay;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
     color: var(--font-color-white);
     text-shadow: 1px 1px var(--shadow-color-dark);
 }
-.page-index #pageMain #idexAboutUs.open {
+.page-index #pageMain #indexAboutUs .indexAboutUs-inner {
+    position: relative;
+    z-index: 11;
+}
+.page-index #pageMain #indexAboutUs::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgb(50, 50, 50) url(../images/index/bakcgound-img-aboutUs_1920_1280.jpg) center center / cover no-repeat;
+    background-blend-mode: overlay;
+    transition: transform .3s ease-out;
+}
+.page-index #pageMain #indexAboutUs.open::after {
+    transform: scale(1.1);
 }
 
 /* product page */
