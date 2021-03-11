@@ -9,8 +9,14 @@ const OPEN = `open`;   // サイドメニューなどの開閉するメニュー
 const ERROR = `error`; // formなどで、何かエラーを含むことを表すクラス
 
 // indexページのarticleHeader背景画像切り替えのパラメタ
-const INTERVAL_IMG = 7000; // 背景画像切り替えの間隔[ms]
-const N_IMG = 5;           // 背景画像の枚数
+const INTERVAL_articleHeader = 7000; // 背景画像切り替えの間隔[ms]
+const N_IMG = 5;                     // 背景画像の枚数
+
+// indexページの#indexProductのスライドショーのパラメタ
+const INTERVAL_indexProduct = 5000; // スライドショーの切り替え間隔[ms]
+const DURATION_indexProduct = 800;  // スライドショーのアニメーション時間[ms]
+const LEFT_initial = -63;           // スライドショーの初期位置[vw]
+const WIDTH_imgAndGaps = 78;        // スライドショーの移動距離[vw]
 
 // YouTubeAPIのためのパラメタ
 const type = `video`;           // 動画検索を指定
@@ -124,7 +130,28 @@ const operateIndex = {
         let i = parseInt(elem.attr(attr));
         i = mod(i + 1, N_attr);
         elem.attr(attr, i);
-    }
+    },
+
+    // #productSliderを実行するメソッド
+    productSlider: function() {
+        // 一番左のliのクローンを作成
+        const firstLi = $(`.productSlider li:first-child`);
+        const clone = firstLi.clone(true);
+        // スライドショーの中身をずらす処理
+        $(`.productSlider ul`).animate({
+            left: `${LEFT_initial - WIDTH_imgAndGaps}vw`
+        }, {
+            duration: DURATION_indexProduct,
+            // アニメーション完了後の処理
+            complete: function() {
+                // 一番左のliを一番右へ移動
+                firstLi.remove();
+                clone.clone(true).insertAfter($(`.productSlider li:last-child`));
+                // スライドショーの中身を初期位置に戻す
+                $(`.productSlider ul`).css(`left`, `${LEFT_initial}vw`);
+            }
+        });
+    },
 };
 
 // スライドショーに関するオブジェクト
@@ -250,9 +277,14 @@ $(window).on(`scroll`, () => {
 });
 
 // articleHeaderの背景を一定間隔で切り替える処理
-const timer = setInterval( () => {
+const loop_articleHeader = setInterval( () => {
     operateIndex.countUpAttr($(`.page-index .articleHeaderImg`), `data-imgNo`, N_IMG);
-}, INTERVAL_IMG);
+}, INTERVAL_articleHeader);
+
+// #indexProductのスライドショーを一定間隔で切り替える処理
+const loop_indexProduct = setInterval( () => {
+    operateIndex.productSlider();
+}, INTERVAL_indexProduct);
 
 // #indexAboutUsのボタンにマウスオーバーした際の処理
 $(`#indexAboutUs button`).on(`mouseover`, () => {
