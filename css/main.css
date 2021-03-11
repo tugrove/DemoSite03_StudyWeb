@@ -697,7 +697,7 @@ dt {
     width: 100%;
     height: calc(70vw / 1280 * 853); /* calc(画像の表示幅 / 画像の元々の幅 * 画像の元々の高さ */
     margin: 0 0 2em;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .page-index #pageMain #indexProduct .productSlider ul {
     position: absolute;
