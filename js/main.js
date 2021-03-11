@@ -8,6 +8,16 @@
 const OPEN = `open`;   // サイドメニューなどの開閉するメニューが開いていることを表すクラス
 const ERROR = `error`; // formなどで、何かエラーを含むことを表すクラス
 
+// indexページのarticleHeader背景画像切り替えのパラメタ
+const INTERVAL_articleHeader = 7000; // 背景画像切り替えの間隔[ms]
+const N_IMG = 5;                     // 背景画像の枚数
+
+// indexページの#indexProductのスライドショーのパラメタ
+const INTERVAL_indexProduct = 5000; // スライドショーの切り替え間隔[ms]
+const DURATION_indexProduct = 800;  // スライドショーのアニメーション時間[ms]
+const LEFT_initial = -63;           // スライドショーの初期位置[vw]
+const WIDTH_imgAndGaps = 78;        // スライドショーの移動距離[vw]
+
 // YouTubeAPIのためのパラメタ
 const type = `video`;           // 動画検索を指定
 const part = `snippet`;         // 検索結果に全てのプロパティを含む
@@ -54,8 +64,19 @@ const operateScroll = {
     // 移動先の要素がページヘッダで隠れないように、ページヘッダの高さだけ移動先をずらすメソッド
     goToTop: function(elem) {
         const height = $(`#pageHeader`).outerHeight();
-        const y = elem.offset().top;
-        scrollTo(0, y - height);
+        const top = elem.offset().top;
+        scrollTo(0, top - height);
+    },
+
+    // ページタイトルが隠れるくらい画面スクロールしたら、ページヘッダの企業ロゴを表示するメソッド
+    toggleLogo: function() {
+        const height = $(`#pageHeader`).outerHeight();
+        const top = $(`.pageTitle`).offset().top;
+        if ($(window).scrollTop() > top - height) {
+            $(`#pageHeader .companyLogo`).addClass(OPEN);
+        } else {
+            $(`#pageHeader .companyLogo`).removeClass(OPEN);
+        }
     }
 };
 
@@ -99,6 +120,38 @@ const operateSideMenu = {
             $(`#sideMenu .globalNav .parent-ul .parent-li`).removeClass(OPEN);
         }
     }
+};
+
+// indexページに関わるオブジェクト
+const operateIndex = {
+
+    // 要素、値に整数の属性、属性値の数を引数として、その要素の属性値を1増やすメソッド
+    countUpAttr: function(elem, attr, N_attr) {
+        let i = parseInt(elem.attr(attr));
+        i = mod(i + 1, N_attr);
+        elem.attr(attr, i);
+    },
+
+    // #productSliderを実行するメソッド
+    productSlider: function() {
+        // 一番左のliのクローンを作成
+        const firstLi = $(`.productSlider li:first-child`);
+        const clone = firstLi.clone(true);
+        // スライドショーの中身をずらす処理
+        $(`.productSlider ul`).animate({
+            left: `${LEFT_initial - WIDTH_imgAndGaps}vw`
+        }, {
+            duration: DURATION_indexProduct,
+            // アニメーション完了後の処理
+            complete: function() {
+                // 一番左のliを一番右へ移動
+                firstLi.remove();
+                clone.clone(true).insertAfter($(`.productSlider li:last-child`));
+                // スライドショーの中身を初期位置に戻す
+                $(`.productSlider ul`).css(`left`, `${LEFT_initial}vw`);
+            }
+        });
+    },
 };
 
 // スライドショーに関するオブジェクト
@@ -213,6 +266,32 @@ $(`#sideMenu .globalNav .parent-ul .parent-li span`).on(`click keydown`, event =
     if (!keyCode || keyCode === 13) {
         operateSideMenu.globalNav.toggleChildUl(parent);
     }
+});
+
+/* indexページ */
+/* -------------------------------------------- */
+
+// 画面スクロールでページヘッダのロゴの表示を切り替える処理
+$(window).on(`scroll`, () => {
+    operateScroll.toggleLogo();
+});
+
+// articleHeaderの背景を一定間隔で切り替える処理
+const loop_articleHeader = setInterval( () => {
+    operateIndex.countUpAttr($(`.page-index .articleHeaderImg`), `data-imgNo`, N_IMG);
+}, INTERVAL_articleHeader);
+
+// #indexProductのスライドショーを一定間隔で切り替える処理
+const loop_indexProduct = setInterval( () => {
+    operateIndex.productSlider();
+}, INTERVAL_indexProduct);
+
+// #indexAboutUsのボタンにマウスオーバーした際の処理
+$(`#indexAboutUs button`).on(`mouseover`, () => {
+    $(`#indexAboutUs`).addClass(OPEN);
+});
+$(`#indexAboutUs button`).on(`mouseout`, () => {
+    $(`#indexAboutUs`).removeClass(OPEN);
 });
 
 /* スライドショー */
