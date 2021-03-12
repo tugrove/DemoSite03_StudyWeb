@@ -536,7 +536,8 @@ dt {
     height: 30vw;
     min-height: 10em;
     max-height: 30em;
-    background: center center / cover no-repeat;
+    background: rgb(100, 100, 100) center center / cover no-repeat;
+    background-blend-mode: overlay;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -616,6 +617,7 @@ dt {
     height: calc(100vh - var(--height-pageHeader));
     max-height: none;
     background: var(--background-color-secondary);
+    background-blend-mode: normal;
 }
 .page-index #pageMain .articleHeader .articleHeaderImg {
     width: 100%;
