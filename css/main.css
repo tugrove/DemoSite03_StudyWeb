@@ -722,7 +722,7 @@ dt {
 .page-index #pageMain #indexGallery .indexGalleryBackgroundImg {
     width: 100%;
     padding: calc(100% / 1280 * 853) 0 0; /* calc(100% / 画像の幅 * 画像の高さ) */
-    background: url(../images/index/background-img-gallery_1280_853.jpg) center center / cover no-repeat;
+    background: url(../images/gallery/background-img_1920_1280.jpg) center center / cover no-repeat;
 }
 .page-index #pageMain #indexGallery .indexGalleryMain {
     padding: calc(var(--height-pageHeader) + 1em) var(--width-sidePadding) 6em;
