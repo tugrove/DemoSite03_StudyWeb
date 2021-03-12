@@ -601,7 +601,7 @@ dt {
     flex-direction: column;
 }
 
-/* product page */
+/* index page */
 /* ============================================ */
 
 /* basic design */
@@ -615,7 +615,6 @@ dt {
     gap: 5%;
     height: calc(100vh - var(--height-pageHeader));
     max-height: none;
-    /* background: linear-gradient(180deg, var(--background-color-primary) 0%, var(--background-color-primary) 30%, var(--background-color-secondary) 30%, var(--background-color-secondary) 100%); */
     background: var(--background-color-secondary);
 }
 .page-index #pageMain .articleHeader .articleHeaderImg {
@@ -650,7 +649,7 @@ dt {
     background: linear-gradient(180deg, var(--background-color-primary) 0%, var(--background-color-primary) 50%, var(--background-color-secondary) 50%, var(--background-color-secondary) 100%);
 }
 .page-index #pageMain .pageTitle {
-    width: 50%;
+    width: 70%;
     min-width: 15rem;
     max-width: 25rem;
 }
@@ -728,6 +727,62 @@ dt {
     /* text-shadow: 1px 1px var(--shadow-color-dark); */
     background: var(--background-color-tertiary);
 }
+
+/* for wide screen */
+/* -------------------------------------------- */
+
+@media screen and (min-width: 700px) {
+
+    /* article header */
+    .page-index #pageMain .articleHeader {
+        grid-template-rows: 40% 50%;
+    }
+}
+@media screen and (min-width: 1080px) {
+
+    /* article header */
+    .page-index #pageMain .articleHeader {
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        gap: 0;
+        grid-template-areas:
+            "a a a a a a a . . ."
+            "a a a a a a a . . ."
+            "a a a a a a a . . ."
+            "a a a a a a a b b b"
+            "a a a a a a a b b b"
+            "a a a a a a a b b b"
+            "a a a a a a a . . ."
+            ". . . . . . . . . .";
+        background: linear-gradient(180deg, var(--background-color-primary) 0%, var(--background-color-primary) 40%, var(--background-color-secondary) 40%, var(--background-color-secondary) 80%, var(--background-color-primary) 80%, var(--background-color-primary) 100%);
+    }
+    .page-index #pageMain .articleHeader .articleHeaderImg {
+        grid-area: a;
+    }
+    .page-index #pageMain .articleHeader .articleHeaderMain {
+        grid-area: b;
+    }
+
+    /* article header main */
+    .page-index #pageMain .articleHeaderMain {
+        background: none;
+    }
+    .page-index #pageMain .pageTitle {
+        width: 90%;
+    }
+}
+
+/* for small height screen */
+/* -------------------------------------------- */
+
+@media screen and (max-height: 500px) {
+
+    /* article header */
+    .page-index #pageMain .articleHeader {
+        height: 160vh;
+    }
+}
+
 
 /* product page */
 /* ============================================ */
@@ -979,6 +1034,7 @@ dt {
     right: .5em;
     bottom: .1em;
 }
+
 
 /* contact page */
 /* ============================================ */
