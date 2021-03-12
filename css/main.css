@@ -695,19 +695,22 @@ dt {
     z-index: 10;
     width: 100%;
     height: calc(70vw / 1280 * 853); /* calc(画像の表示幅 / 画像の元々の幅 * 画像の元々の高さ */
-    margin: 0 0 2em;
+    margin: 0 0 3em;
     overflow: hidden;
 }
 .page-index #pageMain #indexProduct .productSlider ul {
     position: absolute;
     top: 0;
-    left: calc(-1 * (70vw + 8vw + 35vw - 50vw));
+    left: calc(-1 * (70vw + 8vw + 35vw - 50vw)); /* 2番目の画像がちょうど画面の真ん中になる値 */
     display: grid;
     grid-template-columns: repeat(5, 70vw);
     gap: 8vw;
 }
 .page-index #pageMain #indexProduct .productSlider ul li {
     position: relative;
+}
+.page-index #pageMain #indexProduct p:first-of-type {
+    margin-bottom: 2em;
 }
 
 /* index gallery */
@@ -726,6 +729,9 @@ dt {
     color: var(--font-color-white);
     /* text-shadow: 1px 1px var(--shadow-color-dark); */
     background: var(--background-color-tertiary);
+}
+.page-index #pageMain #indexGallery p:first-of-type {
+    margin-bottom: 2em;
 }
 
 /* for wide screen */
