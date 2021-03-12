@@ -23,7 +23,7 @@ const type = `video`;           // 動画検索を指定
 const part = `snippet`;         // 検索結果に全てのプロパティを含む
 const videoEmbeddable = `true`; // Webページに埋め込み可能な動画を検索
 const videoSyndicated = `true`; // youtube.com以外で再生可能な動画のみ取得
-const maxResults = 1;           // 動画の最大取得数
+const maxResults = 3;           // 動画の最大取得数
 
 // galleryページの動画を表示するiframeの親要素divにつけるタグの名前
 const IFRAMEWRAP = `YouTube`;
