@@ -65,7 +65,7 @@ body {
 a {
     color: var(--font-color-link-primary);
 }
-a:not[target="_blank"]::after {
+a[target="_blank"]::after {
     font-family: "Font Awesome 5 Free";
     content: '\f35d';
     font-size: .9em;
@@ -1009,6 +1009,9 @@ dt {
     z-index: 10;
     width: 100%;
     padding: calc(100% / 1280 * 850) 0 0; /* calc(100% / 画像の幅 * 画像の高さ) */
+}
+.page-gallery #pageMain .slideshow .slideshow-imgWrap a::after {
+    content: '';
 }
 .page-gallery #pageMain .slideshow .slideshow-imgWrap .slideshow-img {
     position: absolute;
