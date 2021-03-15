@@ -998,7 +998,7 @@ dt {
 /* basic design */
 /* -------------------------------------------- */
 
-/* slideshow */
+/* picture */
 .page-gallery #pageMain .slideshow {
     display: grid;
     grid-template-columns: 1fr;
@@ -1080,7 +1080,48 @@ dt {
 /* for wide screen */
 /* -------------------------------------------- */
 
+@media screen and (min-width: 500px) {
+    
+    /* picture */
+    .page-gallery #pageMain .slideshow {
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(4, 1fr) auto;
+        grid-template-areas:
+        "a b b b b b b b b c"
+        "a b b b b b b b b c"
+        "a b b b b b b b b c"
+        "a b b b b b b b b c"
+        "d d d d d d d d d d";
+        gap: 2em 1em;
+    }
+    .page-gallery #pageMain .slideshow .slideshow-imgWrap {
+        grid-area: b;
+    }
+    .page-gallery #pageMain .slideshow .slideshow-leftButton {
+        grid-area: a;
+    }
+    .page-gallery #pageMain .slideshow .slideshow-rightButton {
+        grid-area: c;
+    }
+    .page-gallery #pageMain .slideshow .slideshow-thumbnailWrap {
+        grid-area: d;
+    }
+    .page-gallery #pageMain .slideshow .slideshow-leftButton,
+    .page-gallery #pageMain .slideshow .slideshow-rightButton {
+        display: block;
+    }
+    .page-gallery #pageMain .slideshow .slideshow-thumbnailWrap {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
 @media screen and (min-width: 700px) {
+
+    /* picture */
+    .page-gallery #pageMain .slideshow .slideshow-thumbnailWrap {
+        grid-template-columns: repeat(5, 1fr);
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
 
     /* movie */
     .page-gallery #pageMain #YouTubeMovies {
@@ -1090,7 +1131,7 @@ dt {
     }
 }
 @media screen and (min-width: 900px) {
-
+    
     /* movie */
     .page-gallery #pageMain #YouTubeMovies {
         grid-template-columns: 1fr 1fr 1fr;
