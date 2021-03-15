@@ -1081,7 +1081,7 @@ dt {
 /* -------------------------------------------- */
 
 @media screen and (min-width: 500px) {
-    
+
     /* picture */
     .page-gallery #pageMain .slideshow {
         grid-template-columns: repeat(10, 1fr);
@@ -1131,7 +1131,7 @@ dt {
     }
 }
 @media screen and (min-width: 900px) {
-    
+
     /* movie */
     .page-gallery #pageMain #YouTubeMovies {
         grid-template-columns: 1fr 1fr 1fr;
