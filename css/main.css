@@ -414,11 +414,11 @@ dt {
     margin: 0 0 2.5em;
 }
 #sideMenu .globalNav .parent-ul .parent-li span {
+    cursor: pointer;
     color: var(--font-color-link-primary);
     transition: opacity var(--transition-duration-link-opacity) ease;
 }
 #sideMenu .globalNav .parent-ul .parent-li span:hover {
-    cursor: pointer;
     opacity: var(--opacity-hover);
 }
 #sideMenu .globalNav .parent-ul .parent-li span::before {
@@ -1036,11 +1036,14 @@ dt {
 }
 .page-gallery #pageMain .slideshow .slideshow-thumbnailWrap {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: .5em;
     padding: .5em;
     border: solid 1px var(--border-color-primary-translucent);
     background: var(--background-color-button-secondary);
+}
+.page-gallery #pageMain .slideshow .slideshow-thumbnail {
+    cursor: pointer;
 }
 
 /* movie */
