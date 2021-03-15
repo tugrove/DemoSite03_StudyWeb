@@ -1087,11 +1087,11 @@ dt {
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(4, 1fr) auto;
         grid-template-areas:
-        "a b b b b b b b b c"
-        "a b b b b b b b b c"
-        "a b b b b b b b b c"
-        "a b b b b b b b b c"
-        "d d d d d d d d d d";
+            "a b b b b b b b b c"
+            "a b b b b b b b b c"
+            "a b b b b b b b b c"
+            "a b b b b b b b b c"
+            "d d d d d d d d d d";
         gap: 2em 1em;
     }
     .page-gallery #pageMain .slideshow .slideshow-imgWrap {
